@@ -29,6 +29,7 @@
     --panelWidth: 300px;
     --panelIcon: 42px;
     --panelIconTitle: 24px;
+    --panelIconBorderWeight: 2px;
 
     --chatIconDiameter: 30px;
     --chatMessagePadding: 10px;

@@ -46,11 +46,10 @@ body {
 }
 .iconTabContainer {
     position: absolute;
-    right: calc(var(--panelIcon) * -1);
+    right: calc((var(--panelIcon)) * -1);
     top: calc(30% - var(--panelIcon) * 1.5);
     width: var(--panelIcon);
-    border-left: 2px solid var(--gray);
-    border-radius: 2px;
+    background-color: var(--lightBG);
 }
 .iconTab {
     display: block;

@@ -20,6 +20,24 @@ function populatePanel(panelIndex){
     if (panelIndex === 2){
         document.getElementById("panelContentParent").innerHTML = getHtmlForTags();
     }
+
+    updateSidebarState(panelIndex);
+}
+/**
+ * Re-renders sidebar items to reflect currently-selected state
+ * @param {*} stateId ID of the current panel state (0: Discussions, 1: Tasks,
+ * 2: Tags)
+ */
+function updateSidebarState(stateId){
+    for (let i = 0; i < 3; i++){
+        if (i === stateId){
+            document.getElementById("iconTab" + i).style = "background-color: var(--darkerBG)";
+            document.getElementById("tabImg" + i).src = "./img/colored/" + i + ".png";
+        } else {
+            document.getElementById("iconTab" + i).style = "background-color: var(--lightBG)";
+            document.getElementById("tabImg" + i).src = "./img/" + i + ".png";
+        }
+    }
 }
 /**
  * Generates HTML code that can be injected into the panel DOM element

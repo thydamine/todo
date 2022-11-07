@@ -34,7 +34,7 @@ class Project {
 // Common data for each panel, this never really changes.
 let panels = [];
 panels[0] = {
-    title: "Discussions",
+    title: "Discussion",
     iconPath: "./img/chat.png",
     iconPathColor: "./img/colored/chat.png",
     color: "#4bbe5e" // Green
