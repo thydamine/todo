@@ -41,12 +41,10 @@ function getHtmlForDiscussion(){
 function getHtmlForTasks(){
     let html = "";
     html += '<div class="panelTasksContainer">';
-    console.log(projects[currentProject].numberOfTaskLists);
     for (let i = 0; i < projects[currentProject].numberOfTaskLists; i++){
-        console.log("iteration " + i);
         let list = projects[currentProject].taskLists[i];
         html += '<div class="panelTasksList">';
-        html += list.name;
+        html += getHtmlForTaskList(i);
         html += '</div>';
     }
     html += '</div>';
@@ -60,7 +58,15 @@ function getHtmlForTasks(){
  */
 function getHtmlForTaskList(listIndex){
     let html = "";
-    // Loop through a bunch of tasks
+    let title = proj.taskLists[listIndex].name; 
+    let list = proj.taskLists[listIndex].tasks;
+
+    html += '<div class="panelTasksHeader">';
+    html += title;
+    html += '</div>';
+    for (let i = 0; i < list.length; i++){
+        html += getHtmlForTaskItem(listIndex, i);
+    }
     return html;
 }
 /**
@@ -70,8 +76,16 @@ function getHtmlForTaskList(listIndex){
  * @returns HTML code string that can be sent to the DOM
  */
 function getHtmlForTaskItem(listIndex, taskIndex){
+    console.log(listIndex, taskIndex);
+    let item = proj.taskLists[listIndex].tasks[taskIndex];
+    let checkIconPath = "./img/circleUnfilled.png";
     let html = "";
-    
+    html += '<div class="panelTaskContainer">';
+        html += '<img src="' + checkIconPath + '" class="panelTaskCheckbox">';
+        html += '<div class="panelTaskItem">';
+            html += item.name;
+        html += '</div>';
+    html += '</div>';
     return html;
 }
 

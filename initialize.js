@@ -6,7 +6,7 @@ let currentPanelState = 1; // 0: Discussions, 1: Tasks, 2: Tags
 /* Create a new list of projects, add a sample project to it */
 let projects = [];
 projects.push(new Project("3020 Group Project"));
-let proj = project[currentProject];
+let proj = projects[currentProject];
 
 /* Add some canned people to the project */
 let latestId = 0;
@@ -29,9 +29,11 @@ proj.addMessage(5, "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
 proj.addMessage(2, "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.");
 proj.addMessage(4, "Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.");
 
+/* Create a few lists that we can use in examples */
 proj.addTaskList();
 proj.addTaskList();
 
+/* Put some tasks on those lists */
 proj.taskLists[0].newTask();
 proj.taskLists[0].newTask();
 proj.taskLists[0].newTask();

@@ -20,7 +20,6 @@ class Project {
         return this.chatMessages;
     }
     addTaskList(){
-        console.log("Adding a new task list (" + this.taskLists.length + " before this)");
         this.taskLists.push(new TaskList());
     }
     get numberOfTaskLists() {

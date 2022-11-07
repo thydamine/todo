@@ -5,13 +5,28 @@
 .panelTasksList {
     background-color: var(--lightBG);
     padding: 10px;
-    font-size: var(--taskHeadingFontSize);
-    font-weight: var(--taskHeadingFontWeight);
     line-height: 1em;
     margin-bottom: 8px;
     cursor: pointer;
 }
+.panelTaskContainer {
+    display: block;
+}
+.panelTasksHeader {
+    font-size: var(--taskHeadingFontSize);
+    font-weight: var(--taskHeadingFontWeight);
+}
 .panelTaskItem {
+    display: inline-block;
     margin-left: 5px;
+    margin-top: calc(var(--taskLineItemFontSize) / 2);
     font-size: var(--taskLineItemFontSize);
+    font-weight: var(--taskLineItemFontWeight);
+    color: var(--deEmphasizedSmallText);
+}
+.panelTaskCheckbox {
+    width: var(--taskCheckIconSize);
+    opacity: var(--taskCheckIconOpacity);
+    position: relative;
+    top: 2px;
 }

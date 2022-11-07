@@ -33,6 +33,9 @@
     --chatIconDiameter: 30px;
     --chatMessagePadding: 10px;
 
+    --taskCheckIconSize: 16px;
+    --taskCheckIconOpacity: 0.6;
+
     --headerPadding: 15px;
     --headerHeight: 40px;
     
@@ -46,7 +49,8 @@
 
     --taskHeadingFontSize: 18px;
     --taskHeadingFontWeight: 700;
-    --taskLineItemFontSize: 14px;
+    --taskLineItemFontSize: 16px;
+    --taskLineItemFontWeight: 400;
 }
 
 /* Plaintext key:
