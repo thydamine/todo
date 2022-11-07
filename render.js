@@ -64,9 +64,11 @@ function getHtmlForTaskList(listIndex){
     html += '<div class="panelTasksHeader">';
     html += title;
     html += '</div>';
+    html += '<div id="">';
     for (let i = 0; i < list.length; i++){
         html += getHtmlForTaskItem(listIndex, i);
     }
+    html += '</div>';
     return html;
 }
 /**
