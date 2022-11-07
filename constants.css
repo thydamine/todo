@@ -1,0 +1,77 @@
+/* Contains a handful of app-standard colors */
+
+:root {
+    /* COLORS */
+    --veryLightBG: #4b4f54;
+    --lightBG: #2e3033;
+    --mainBG: #24262a;
+    --darkerBG: #1c1f23;
+
+    --largeText: #fafafa;
+    --smallText: #ffffff;
+    --deEmphasizedSmallText: #d2d2d3;
+    --grayedOut: #929395;
+
+    --selectorBackground: #393c3f;
+    --buttonBackground: #286dc1;
+    --tagBackground: #2f7056;
+
+    --yellow: #ffd400;
+    --blue: #1eaef8;
+    --orangered: #ff2f6c;
+    --jade: #4aafa5;
+    --beige: #d2c68d;
+    --green: #4bbe5e;
+    --gray: #c2c7cb;
+
+    /* STATIC SIZES */
+    --panelPadding: 30px;
+    --panelWidth: 300px;
+    --panelIcon: 42px;
+    --panelIconTitle: 24px;
+
+    --chatIconDiameter: 30px;
+    --chatMessagePadding: 10px;
+
+    --headerPadding: 15px;
+    --headerHeight: 40px;
+    
+    /* FONT SIZES */
+    --projectHeaderFontSize: 20px;
+
+    --panelHeading: 30px;
+    --panelHeadingWeight: 500;
+
+    --chatInputFontSize: 16px;
+
+    --taskHeadingFontSize: 18px;
+    --taskHeadingFontWeight: 700;
+    --taskLineItemFontSize: 14px;
+}
+
+/* Plaintext key:
+
+Main BG: #24262a
+Darker BG: #1c1f23
+Light BG: #2e3033
+Very Light BG: #4b4f54
+
+Large Text: #fafafa
+Small Text #ffffff
+De-Emphasized Small Text: #d2d2d3
+Grayed-Out: #929395
+
+Selector Background (Gray): #393c3f
+Button Background (Blue): #286dc1
+Tag Background (Green): #2f7056
+
+##Icon Colors
+Yellow: #ffd400
+Blue: #1eaef8
+Orangered: #ff2f6c
+Jade: #4aafa5
+Beige: #d2c68d
+Green: #4bbe5e
+Gray: #c2c7cb
+
+*/

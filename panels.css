@@ -1,0 +1,68 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+
+body {
+    /* Applies to all elements by default */
+    background-color: var(--mainBG);
+    color: var(--smallText);
+    font-family: 'Lato', sans-serif;
+    font-weight: 300;
+    margin: 0;
+}
+.mainContainer {
+    /* Holds all app elements inside, useful for relative positioning */
+    height: 100vh;
+    overflow: hidden;
+    display: block;
+    position: relative;
+}
+.projectHeader {
+    /* Sits at the top of the app, includes the project selector */
+    position: relative;
+    margin: 0;
+    padding-left: var(--headerPadding);
+    padding-top: var(--headerPadding);
+    font-size: var(--projectHeaderFontSize);
+    color: var(--deEmphasizedSmallText);
+    font-weight: 500;
+    line-height: var(--headerFont);
+    background-color: var(--lightBG);
+    max-height: var(--headerHeight);
+    min-height: var(--headerHeight);
+    overflow: hidden;
+}
+.blackboardParent {
+    /* Holds panels and blackboard elements */
+    position: relative;
+    display: block;
+    height: calc(100vh - var(--headerHeight) - var(--headerPadding)); /* Subtract the header height */
+}
+.panel {
+    /* Pops out from the side, holds Discussions, Tasks, and Tags  */
+    position: relative;
+    height: calc(100% - (var(--panelPadding) * 2));
+    padding: var(--panelPadding);
+    width: var(--panelWidth);
+    background-color: var(--darkerBG);
+}
+.iconTabContainer {
+    position: absolute;
+    right: calc(var(--panelIcon) * -1);
+    top: calc(30% - var(--panelIcon) * 1.5);
+    width: var(--panelIcon);
+    border-left: 2px solid var(--gray);
+    border-radius: 2px;
+}
+.iconTab {
+    display: block;
+    width: var(--panelIcon);
+    height: var(--panelIcon);
+    text-align: center;
+}
+.iconTab:hover {
+    background-color: var(--darkerBG);
+    cursor: pointer;
+}
+.iconImg {
+    margin-top: calc(var(--panelIcon) / 5);
+    width: calc(var(--panelIcon) * (3/5));
+}

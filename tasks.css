@@ -1,0 +1,17 @@
+.panelTasksContainer {
+    display: block;
+    position: relative;
+}
+.panelTasksList {
+    background-color: var(--lightBG);
+    padding: 10px;
+    font-size: var(--taskHeadingFontSize);
+    font-weight: var(--taskHeadingFontWeight);
+    line-height: 1em;
+    margin-bottom: 8px;
+    cursor: pointer;
+}
+.panelTaskItem {
+    margin-left: 5px;
+    font-size: var(--taskLineItemFontSize);
+}

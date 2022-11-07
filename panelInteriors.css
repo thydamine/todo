@@ -1,0 +1,78 @@
+.panelHeading {
+    font-size: var(--panelHeading);
+    font-weight: var(--panelHeadingWeight);
+    color: var(--largeText);
+    margin-bottom: 30px;
+}
+.panelHeadingIcon {
+    width: var(--panelIconTitle);
+    margin-right: 8px;
+}
+.panelContentParent {
+    position: relative;
+    display: block;
+}
+.panelChatContainer {
+    display: block;
+    position: relative;
+    overflow: scroll;
+    height: calc(100% - 120px);
+}
+.panelChatInputContainer {
+    margin-top: 0;
+    display: block;
+    padding-top: 5px;
+    text-align: left;
+}
+.panelChatInput {
+    padding: 5px;
+    font-size: var(--chatInputFontSize);
+    background-color: rgba(0,0,0,0);
+    color: var(--largeText);
+    border: 2px solid var(--lightBG);
+    border-radius: 4px;
+    width: calc(80% - 14px);
+    margin-top: 10px;
+}
+.panelChatButton {
+    background-color: var(--selectorBackground);
+    padding: 5px;
+    margin-left: 5px;
+    border: none;
+    color: var(--grayedOut);
+    width: calc(20% - 5px);
+    border-radius: 4px;
+}
+.panelChatFrame {
+    display: block;
+    position: relative;
+    margin-bottom: 10px;
+}
+.panelChatMessageBox {
+    display: block;
+    margin: auto;
+    text-align: right;
+}
+.panelChatIcon {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: var(--chatIconDiameter);
+    height: var(--chatIconDiameter);
+    border-radius: calc(var(--chatIconDiameter) / 2);
+    background-color: var(--orangered);
+}
+.panelChatMessage {
+    position: relative;
+    display: inline-block;
+    padding: var(--chatMessagePadding);
+    width: calc(100% - var(--chatMessagePadding) * 2 - 
+                var(--chatIconDiameter) - 10px);
+    background-color: var(--lightBG);
+}
+.chatLeft {
+    float: left;
+}
+.chatRight {
+    float: right;
+}
