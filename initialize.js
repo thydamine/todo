@@ -1,7 +1,7 @@
 /* Initialize a few defaults */
 let currentProject = 0;
 let myUserId = 5;
-let currentPanelState = 1; // 0: Discussions, 1: Tasks, 2: Tags
+let currentPanelState = 2; // 0: Discussions, 1: Tasks, 2: Tags
 
 /* Create a new list of projects, add a sample project to it */
 let projects = [];
@@ -30,15 +30,23 @@ proj.addMessage(2, "Duis aute irure dolor in reprehenderit in voluptate velit es
 proj.addMessage(4, "Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.");
 
 /* Create a few lists that we can use in examples */
-proj.addTaskList();
-proj.addTaskList();
+proj.addTaskList("Write App");
+proj.addTaskList("Milestone 3 Summary");
 
 /* Put some tasks on those lists */
-proj.taskLists[0].newTask();
-proj.taskLists[0].newTask();
-proj.taskLists[0].newTask();
+proj.taskLists[0].newTask("Set up GitHub repo");
+proj.taskLists[0].newTask("Finish panels");
+proj.taskLists[0].newTask("Add file sharing area");
 
-proj.taskLists[1].newTask();
+proj.taskLists[1].newTask("First draft of overall summary");
+
+/* Populate a few tags */
+
+proj.addTag("Essay");
+proj.addTag("Code");
+proj.addTag("Important");
+proj.addTag("Milestone 3");
+proj.addTag("Needs Editing");
 
 /* Send all that data out to the console so that we can investigate */
 console.log(projects);

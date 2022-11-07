@@ -4,17 +4,19 @@
 }
 .panelTasksList {
     background-color: var(--lightBG);
-    padding: 10px;
+    padding: 12px;
     line-height: 1em;
     margin-bottom: 8px;
     cursor: pointer;
 }
 .panelTaskContainer {
     display: block;
+    margin-top: 3px;
 }
 .panelTasksHeader {
     font-size: var(--taskHeadingFontSize);
     font-weight: var(--taskHeadingFontWeight);
+    margin-bottom: 3px;
 }
 .panelTaskItem {
     display: inline-block;

@@ -9,9 +9,9 @@ class TaskList {
     tasks = [];
     tags = [];
 
-    newTask(){
+    newTask(name){
         this.taskCount++;
-        this.tasks.push(new Task());
+        this.tasks.push(new Task(name));
     }
     getNumberOfTasks(){
         return this.tasks.length;

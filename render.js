@@ -17,6 +17,9 @@ function populatePanel(panelIndex){
     if (panelIndex === 1){
         document.getElementById("panelContentParent").innerHTML = getHtmlForTasks();
     }
+    if (panelIndex === 2){
+        document.getElementById("panelContentParent").innerHTML = getHtmlForTags();
+    }
 }
 /**
  * Generates HTML code that can be injected into the panel DOM element
@@ -90,5 +93,19 @@ function getHtmlForTaskItem(listIndex, taskIndex){
     html += '</div>';
     return html;
 }
+/**
+ * Generates HTML for the tag panel
+ * @returns HTML code string that can be sent to the DOM
+ */
+ function getHtmlForTags(){
+    let html = "";
+    for (let i = 0; i < projects[currentProject].tags.length; i++){
+        let tag = projects[currentProject].tags[i];
+        html += '<div class="panelTagsTagCore">' + tag.name + '</div>';
+    }
+
+    return html;
+}
+
 
 populatePanel(currentPanelState);
