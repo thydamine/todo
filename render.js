@@ -22,6 +22,7 @@ function populatePanel(panelIndex){
     }
 
     updateSidebarState(panelIndex);
+    panelOpen();
 }
 /**
  * Re-renders sidebar items to reflect currently-selected state

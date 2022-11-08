@@ -8,11 +8,13 @@
   <link rel="stylesheet" href="tasks.css">
   <link rel="stylesheet" href="tags.css">
   <link rel="stylesheet" href="constants.css">
+  <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.13.2/themes/smoothness/jquery-ui.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
-  <script type="text/javascript" src="tasks.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.13.2/jquery-ui.min.js"></script>  <script type="text/javascript" src="tasks.js"></script>
   <script type="text/javascript" src="project.js"></script>
   <script type="text/javascript" src="chat.js"></script>
   <script type="text/javascript" src="tags.js"></script>
+  <script type="text/javascript" src="toggles.js"></script>
   <script type="text/javascript" src="initialize.js"></script>
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <meta name="description" content="Blackboard is a project manager that helps student groups organize and share ideas." />
@@ -21,8 +23,9 @@
     <div class="mainContainer">
         <div class="projectHeader"><div class="projectHeaderText">Project 1</div></div>
         <div class="blackboardParent">
-            <div class="panel" id="discussion">
+            <div class="panel" id="panel">
                 <div class="iconTabContainer">
+                    <div class="iconTab" onclick="panelToggle();" style="background-color: none;opacity: 0.3;"><img src="./img/hamburger.png" class="iconImg" style="background-color: none;"></div>
                     <div class="iconTab" onclick="populatePanel(0);" id="iconTab0"><img id="tabImg0" src="./img/chat.png" class="iconImg"></div>
                     <div class="iconTab" onclick="populatePanel(1);" id="iconTab1"><img id="tabImg1" src="./img/circleCheck.png" class="iconImg"></div>
                     <div class="iconTab" onclick="populatePanel(2);" id="iconTab2"><img id="tabImg2" src="./img/tag.png" class="iconImg"></div>

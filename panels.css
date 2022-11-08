@@ -49,7 +49,7 @@ body {
     right: calc((var(--panelIcon)) * -1);
     top: calc(30% - var(--panelIcon) * 1.5);
     width: var(--panelIcon);
-    background-color: var(--lightBG);
+    /* background-color: var(--lightBG); */
 }
 .iconTab {
     display: block;
