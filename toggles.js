@@ -29,6 +29,10 @@ function panelMove(position){
         }
       });
 }
+/**
+ * Pulls the panel in slightly upon close to give a bounce effect
+ * @param {int} intensity how far the panel bounces on close (in px)
+ */
 function panelBounceIn(intensity){
     $( "#panel" ).animate({
         left: panelClosedPos - intensity,
@@ -38,6 +42,10 @@ function panelBounceIn(intensity){
           }, 300, function() {});
       });
 }
+/**
+ * Pushes the panel outward slightly upon close to give a bounce effect
+ * @param {int} intensity how far the panel bounces beyond the maximum (in px)
+ */
 function panelBounceOut(intensity){
     $( "#panel" ).animate({
         left: intensity,
