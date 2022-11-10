@@ -126,5 +126,7 @@ function getHtmlForTaskItem(listIndex, taskIndex){
     return html;
 }
 
-
 populatePanel(currentPanelState);
+if (!panelOpenDefault){
+    panelToggle();
+}

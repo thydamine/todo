@@ -2,6 +2,7 @@
 let currentProject = 0;
 let myUserId = 5;
 let currentPanelState = 0; // 0: Discussions, 1: Tasks, 2: Tags
+let panelOpenDefault = false;
 
 /* Create a new list of projects, add a sample project to it */
 let projects = [];
@@ -32,6 +33,11 @@ proj.addMessage(4, "Consectetur adipiscing elit, sed do eiusmod tempor incididun
 /* Create a few lists that we can use in examples */
 proj.addTaskList("Write App");
 proj.addTaskList("Milestone 3 Summary");
+
+/* Add some blocks to the Blackboard */
+proj.addBlock("Summary");
+proj.addBlock("Contract");
+proj.addBlock("Q3 Footnotes");
 
 /* Put some tasks on those lists */
 proj.taskLists[0].newTask("Set up GitHub repo");

@@ -38,7 +38,7 @@ body {
 }
 .panel {
     /* Pops out from the side, holds Discussions, Tasks, and Tags  */
-    position: relative;
+    position: absolute;
     height: calc(100% - (var(--panelPadding) * 2));
     padding: var(--panelPadding);
     width: var(--panelWidth);

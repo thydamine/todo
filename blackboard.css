@@ -1,0 +1,8 @@
+.boardBlockContainer {
+    padding: 30px;
+    border-radius: 10px;
+    background-color: var(--lightBG);
+    width: 150px;
+    display: inline-flex;
+    margin: 20px;
+}

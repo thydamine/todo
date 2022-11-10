@@ -10,6 +10,7 @@ class Project {
     chatMessages = [];
     taskLists = [];
     tags = [];
+    blocks = [];
 
     addPerson(person){
         this.people.push(person);
@@ -25,6 +26,9 @@ class Project {
     }
     addTag(name){
         this.tags.push(new Tag(name));
+    }
+    addBlock(name, path){
+        this.blocks.push(new Block(name, path));
     }
     get numberOfTaskLists() {
         return this.taskLists.length;
