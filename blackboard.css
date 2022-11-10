@@ -1,8 +1,23 @@
 .boardBlockContainer {
-    padding: 30px;
-    border-radius: 10px;
     background-color: var(--lightBG);
-    width: 150px;
+    border-radius: 5px;
+    color: #FFFFFF;
+    margin-left: 20px;
+    margin-top: 20px;
+    width: 250px;
     display: inline-flex;
-    margin: 20px;
+    min-height: 160px;
+}
+.boardBlock {
+    display: block;
+    padding: 15px;
+    font-size: 16px;
+    font-weight: 500;
+}
+.boardBlockImg {
+    display: block;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    object-fit: cover;
+    background-color: var(--darkBG);
 }
