@@ -54,5 +54,12 @@ proj.addTag("Important");
 proj.addTag("Milestone 3");
 proj.addTag("Needs Editing");
 
+proj.addActivityFeedItem("EDIT", 3);
+proj.addActivityFeedItem("ADD", 0);
+proj.addActivityFeedItem("DELETE", 5);
+proj.addActivityFeedItem("ASSIGN", 1);
+proj.addActivityFeedItem("EDIT", 2);
+proj.addActivityFeedItem("EDIT", 4);
+
 /* Send all that data out to the console so that we can investigate */
 console.log(projects);

@@ -133,6 +133,19 @@ function getHtmlForTaskItem(listIndex, taskIndex){
 
     return html;
 }
+function renderActivityFeed(){
+    let html = "";
+    let activity = projects[currentProject].activityFeed;
+    for (let i = 0; i < activity.length; i++){
+        let item = activity[i];
+        html += '<div class="panelActivityItem">';
+        html += '<div class="panelActivityIcon"></div>';
+        html += '<div class="panelActivityText">';
+        html += item.name;
+        html += '</div></div>';
+    }
+    document.getElementById("panelActivityFeed").innerHTML = html;
+}
 
 // Do an initial render of the panel
 populatePanel(currentPanelState);
@@ -140,3 +153,6 @@ if (!panelOpenDefault){
     // If the panel is closed by default, close it.
     panelToggle();
 }
+
+// Do an initial render of the activity feed
+renderActivityFeed();

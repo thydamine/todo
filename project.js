@@ -11,6 +11,7 @@ class Project {
     taskLists = [];
     tags = [];
     blocks = [];
+    activityFeed = [];
 
     addPerson(person){
         this.people.push(person);
@@ -29,6 +30,9 @@ class Project {
     }
     addBlock(name, path){
         this.blocks.push(new Block(name, path));
+    }
+    addActivityFeedItem(changeType, personChanged){
+        this.activityFeed.push(new ActivityFeedItem(changeType, personChanged));
     }
     get numberOfTaskLists() {
         return this.taskLists.length;

@@ -44,6 +44,16 @@ body {
     width: var(--panelWidth);
     background-color: var(--darkerBG);
 }
+.panel_notification {
+    right: 0;
+}
+.panelNotificationSubheading {
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--deEmphasizedSmallText);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
 .iconTabContainer {
     position: absolute;
     right: calc((var(--panelIcon)) * -1);
