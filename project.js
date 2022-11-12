@@ -37,6 +37,13 @@ class Project {
     get numberOfTaskLists() {
         return this.taskLists.length;
     }
+    get tasks() {
+        let tasks = [];
+        this.taskLists.forEach(list => {
+            tasks = tasks.concat(list.tasks);
+        });
+        return tasks;
+    }
 }
 
 // Common data for each panel, this never really changes.

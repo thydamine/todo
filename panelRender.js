@@ -133,18 +133,56 @@ function getHtmlForTaskItem(listIndex, taskIndex){
 
     return html;
 }
-function renderActivityFeed(){
+/**
+ * Generates HTML for the due tasks section of the activity feed
+ * @returns HTML code string that can be sent to the DOM
+ */
+function getHtmlForDueTasks(){
     let html = "";
+    let concatLength = 30;
+    html += '<div class="panelNotificationSubheading">Due Tasks</div>';
+    for (let i = 0; i < projects[currentProject].tasks.length; i++){
+        let task = projects[currentProject].tasks[i];
+
+        // Shorten the task name
+        let taskName = task.name;
+        if (taskName.length > concatLength){
+            taskName = taskName.substring(0, concatLength) + "...";
+        }
+
+        let ONE_DAY_IN_MS = 86400000;
+        if (task.dueDate < Date.now() - ONE_DAY_IN_MS){
+            html += '<div class="panelDueTaskContainer">';
+                html += '<div class="panelDueTaskTitle">' + taskName;
+                html += '<div class="panelDueTaskDate">' + task.dueDateString + '</div>';
+                html += '</div>';
+            html += '</div>';
+        }
+    }
+    return html;
+}
+function getHtmlForActivityFeed(){
+    let html = "";
+    let topMargin = 30;
+    html += '<div class="panelNotificationSubheading" style="margin-top:' + topMargin + 'px">Activity Feed</div>';
     let activity = projects[currentProject].activityFeed;
     for (let i = 0; i < activity.length; i++){
         let item = activity[i];
         html += '<div class="panelActivityItem">';
         html += '<div class="panelActivityIcon"></div>';
         html += '<div class="panelActivityText">';
-        html += item.name;
+        html += item.description;
         html += '</div></div>';
     }
-    document.getElementById("panelActivityFeed").innerHTML = html;
+    return html;
+}
+function renderActivityFeed(){
+    let html = "";
+    html += '<div class="panelNotificationsContainer">';
+    html += getHtmlForDueTasks();
+    html += getHtmlForActivityFeed();
+    html += '</div>';
+    document.getElementById("notificationPanel").innerHTML = html;
 }
 
 // Do an initial render of the panel

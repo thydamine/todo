@@ -53,6 +53,16 @@ body {
     color: var(--deEmphasizedSmallText);
     text-transform: uppercase;
     letter-spacing: 0.1em;
+    margin-bottom: 5px;
+}
+.panelDueTaskTitle {
+}
+.panelDueTaskDate {
+    float: right;
+}
+.panelActivityText {
+    color: var(--deEmphasizedSmallText);
+    margin-bottom: 3px;
 }
 .iconTabContainer {
     position: absolute;

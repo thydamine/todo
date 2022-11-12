@@ -15,7 +15,7 @@ class TaskList {
     }
     getNumberOfTasks(){
         return this.tasks.length;
-    }
+    }    
 }
 /**
  * Format for a specific task item, can be assigned or marked as completed.
@@ -33,5 +33,10 @@ class Task {
     }
     setDueDate(dueDateTimestamp){
         this.dueDate = dueDateTimestamp;
+    }
+    get dueDateString(){
+        let date = new Date(this.dueDate);
+        // cut the last 5 characters from a string
+        return date.toLocaleDateString().slice(0, -5);
     }
 }
