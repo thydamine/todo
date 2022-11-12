@@ -11,18 +11,26 @@ function populatePanel(panelIndex){
     document.getElementById("panelHeading").innerHTML = titleHtml;
 
     if (panelIndex === 0){
+        // Discussion
         document.getElementById("panelContentParent").innerHTML = getHtmlForDiscussion();
         renderChatMessages();
     }
     if (panelIndex === 1){
+        // Tasks
         document.getElementById("panelContentParent").innerHTML = getHtmlForTasks();
     }
     if (panelIndex === 2){
+        // Tags
         document.getElementById("panelContentParent").innerHTML = getHtmlForTags();
     }
 
+    // Change the content of the panel to reflect the chosen state
     updateSidebarState(panelIndex);
-    panelOpen();
+
+    if (panelState === -1){
+        // We don't want stuff to bounce if the panel's already open.
+        panelOpen();
+    }
 }
 /**
  * Re-renders sidebar items to reflect currently-selected state
@@ -126,7 +134,9 @@ function getHtmlForTaskItem(listIndex, taskIndex){
     return html;
 }
 
+// Do an initial render of the panel
 populatePanel(currentPanelState);
 if (!panelOpenDefault){
+    // If the panel is closed by default, close it.
     panelToggle();
 }

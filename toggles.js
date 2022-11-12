@@ -26,6 +26,8 @@ function panelMove(position){
       }, 200, function() {
         if (panelState === -1){
             panelBounceIn(20);
+        } else {
+            panelBounceOut(10);
         }
       });
 }
@@ -48,11 +50,11 @@ function panelBounceIn(intensity){
  */
 function panelBounceOut(intensity){
     $( "#panel" ).animate({
-        left: intensity,
-      }, 30, function() {
+        left: -1 * intensity,
+      }, 100, function() {
         $( "#panel" ).animate({
             left: 0,
-          }, 300, function() {});
+          }, 200, function() {});
       });
 }
 /**
