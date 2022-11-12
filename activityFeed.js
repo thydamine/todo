@@ -9,7 +9,7 @@ class ActivityFeedItem {
     }
 
     isTypeValid(type){
-        return (type == "EDIT" || type == "ADD" || type == "DELETE" || type == "ASSIGN");
+        return validFeedTypes.includes(type);
     }
     set changeType(type){
         if(this.isTypeValid(type)){
@@ -28,3 +28,4 @@ class ActivityFeedItem {
     personChanged;
     time = new Date();
 }
+const validFeedTypes = ["EDIT", "ADD", "DELETE", "ASSIGN"];
