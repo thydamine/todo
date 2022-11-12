@@ -15,21 +15,6 @@ body {
     display: block;
     position: relative;
 }
-.projectHeader {
-    /* Sits at the top of the app, includes the project selector */
-    position: relative;
-    margin: 0;
-    padding-left: var(--headerPadding);
-    padding-top: var(--headerPadding);
-    font-size: var(--projectHeaderFontSize);
-    color: var(--deEmphasizedSmallText);
-    font-weight: 500;
-    line-height: var(--headerFont);
-    background-color: var(--lightBG);
-    max-height: var(--headerHeight);
-    min-height: var(--headerHeight);
-    overflow: hidden;
-}
 .blackboardParent {
     /* Holds panels and blackboard elements */
     position: relative;
@@ -45,7 +30,7 @@ body {
     background-color: var(--darkerBG);
 }
 .panel_notification {
-    right: 0;
+    right: calc(var(--panelWidth) * -1 - var(--panelPadding) * 2);
 }
 .panelNotificationSubheading {
     font-size: 14px;

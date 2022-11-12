@@ -1,0 +1,25 @@
+.projectHeader {
+    /* Sits at the top of the app, includes the project selector */
+    position: relative;
+    margin: 0;
+    padding-left: var(--headerPadding);
+    padding-top: var(--headerPadding);
+    padding-right: var(--headerPadding);
+    font-size: var(--projectHeaderFontSize);
+    color: var(--deEmphasizedSmallText);
+    font-weight: 500;
+    line-height: var(--headerFont);
+    background-color: var(--lightBG);
+    max-height: var(--headerHeight);
+    min-height: var(--headerHeight);
+    overflow: hidden;
+}
+.projectHeaderText {
+    display: inline-block;
+    width: 300px;
+}
+.projectHeaderButtons {
+    display: inline-block;
+    position: relative;
+    float: right;
+}

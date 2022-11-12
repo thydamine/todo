@@ -1,4 +1,5 @@
 let panelState = 1;
+let notifState = -1;
 const panelClosedPos = -360;
 
 /**
@@ -20,14 +21,23 @@ function panelToggle(){
  * Moves the panel element to the given x position
  * @param {int} position Desired x position of the panel
  */
-function panelMove(position){
-    $( "#panel" ).animate({
-        left: position,
-      }, 200, function() {
-        if (panelState === -1){
-            panelBounceIn(20);
+function panelMove(position, panelid = "panel"){
+    let slideTime = 200;
+    let anchor = "left";
+    let localState = panelState;
+
+    if (panelid === "notificationPanel"){
+        anchor = "right";
+        localState = notifState;
+    }
+
+    $( "#" + panelid ).animate({
+        [anchor]: position,
+      }, slideTime, function() {
+        if (localState === 1){
+            panelBounceIn(20, panelid, anchor);
         } else {
-            panelBounceOut(10);
+            panelBounceOut(10, panelid, anchor);
         }
       });
 }
@@ -35,12 +45,12 @@ function panelMove(position){
  * Pulls the panel in slightly upon close to give a bounce effect
  * @param {int} intensity how far the panel bounces on close (in px)
  */
-function panelBounceIn(intensity){
-    $( "#panel" ).animate({
-        left: panelClosedPos - intensity,
+function panelBounceIn(intensity, panelid = "panel", anchor = "left"){
+    $( "#" + panelid ).animate({
+        [anchor]: panelClosedPos - intensity,
       }, 30, function() {
-        $( "#panel" ).animate({
-            left: panelClosedPos,
+        $( "#" + panelid ).animate({
+            [anchor]: panelClosedPos,
           }, 300, function() {});
       });
 }
@@ -48,12 +58,12 @@ function panelBounceIn(intensity){
  * Pushes the panel outward slightly upon close to give a bounce effect
  * @param {int} intensity how far the panel bounces beyond the maximum (in px)
  */
-function panelBounceOut(intensity){
-    $( "#panel" ).animate({
-        left: -1 * intensity,
+function panelBounceOut(intensity, panelid = "panel", anchor = "left"){
+    $( "#" + panelid ).animate({
+        [anchor]: -1 * intensity,
       }, 100, function() {
-        $( "#panel" ).animate({
-            left: 0,
+        $( "#" + panelid ).animate({
+            [anchor]: 0,
           }, 200, function() {});
       });
 }
@@ -63,4 +73,17 @@ function panelBounceOut(intensity){
 function panelOpen(){
     panelMove(0);
     panelState = 1;
+}
+
+function toggleNotificationPane(){
+    let panelPos = 0;
+    if (notifState === 1){
+        panelPos = panelClosedPos;
+    } else {
+        panelPos = 0;
+    }
+    
+    panelMove(panelPos, "notificationPanel");
+
+    notifState *= -1;
 }

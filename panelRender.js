@@ -184,7 +184,6 @@ function renderActivityFeed(){
     html += '</div>';
     document.getElementById("notificationPanel").innerHTML = html;
 }
-
 // Do an initial render of the panel
 populatePanel(currentPanelState);
 if (!panelOpenDefault){
