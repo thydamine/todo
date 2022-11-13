@@ -4,7 +4,7 @@
     color: #FFFFFF;
     margin-left: 20px;
     margin-top: 20px;
-    width: 250px;
+    width: calc((100vw / var(--numOfBlocks)) - 20px - (20px / var(--numOfBlocks)));
     display: inline-flex;
     min-height: 160px;
 }

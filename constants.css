@@ -54,6 +54,23 @@
     --taskLineItemFontWeight: 400;
 
     --tagFontSize: 18px;
+
+    --numOfBlocks: 6;
+}
+@media only screen and (max-width: 1000px)  {
+    :root {
+        --numOfBlocks: 4;
+    }
+}
+@media only screen and (max-width: 700px)  {
+    :root {
+        --numOfBlocks: 3;
+    }
+}
+@media only screen and (max-width: 400px)  {
+    :root {
+        --numOfBlocks: 2;
+    }
 }
 
 /* Plaintext key:
