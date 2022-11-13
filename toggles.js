@@ -74,7 +74,9 @@ function panelOpen(){
     panelMove(0);
     panelState = 1;
 }
-
+/**
+ * Opens and closes the notification panel
+ */
 function toggleNotificationPane(){
     let panelPos = 0;
     if (notifState === 1){
