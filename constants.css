@@ -39,6 +39,9 @@
 
     --headerPadding: 15px;
     --headerHeight: 40px;
+
+    --buttonSize: 50px;
+    --buttonMargin: 20px;
     
     /* FONT SIZES */
     --projectHeaderFontSize: 20px;

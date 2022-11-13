@@ -21,3 +21,23 @@
     object-fit: cover;
     background-color: var(--darkBG);
 }
+.buttonContainer {
+    display: block;
+    position: absolute;
+    bottom: var(--buttonMargin);
+    right: var(--buttonMargin);
+}
+.button {
+    display: inline-block;
+    background-color: var(--buttonBackground);
+    border-radius: calc(var(--buttonSize) / 2);
+    color: #f9f9f9;
+    text-align: center;
+    width: var(--buttonSize);
+    height: var(--buttonSize);
+    font-size: calc(var(--buttonSize));
+    font-weight: 100;
+    line-height: 0.9em;
+    font-weight: 500;
+    cursor: pointer;
+}

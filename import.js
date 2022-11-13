@@ -1,0 +1,12 @@
+jQuery(document).ready(function(){
+    $.getScript('tasks.js');
+    $.getScript('project.js');
+    $.getScript('activityFeed.js');
+    $.getScript('chat.js');
+    $.getScript('tags.js');
+    $.getScript('toggles.js');
+    $.getScript('blackboard.js');
+    $.getScript('initialize.js');  
+    $.getScript('panelRender.js');  
+    $.getScript('boardRender.js');  
+});
