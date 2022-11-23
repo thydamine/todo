@@ -3,6 +3,7 @@ let currentProject = 0;
 let myUserId = 5;
 let currentPanelState = 0; // 0: Discussions, 1: Tasks, 2: Tags
 let panelOpenDefault = false;
+let activeBlock = 0;
 
 /* Create a new list of projects, add a sample project to it */
 let projects = [];

@@ -71,7 +71,7 @@
     --tagFontSize: 18px;
     --tagFontSizeSmall: 12px;
 
-    --numOfBlocks: 6;
+    --numOfBlocks: 5;
 }
 @media only screen and (max-width: 1000px)  {
     :root {

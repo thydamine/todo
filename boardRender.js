@@ -19,6 +19,12 @@ function renderBlocks(){
     document.getElementById("blockZone").innerHTML = html;
 }
 
+function renameActiveBlock(){
+    let block = proj.blocks[activeBlock];
+    block.name = document.getElementById("blockNameField").value;
+    renderBlocks();
+}
+
 renderBlocks();
 closePanelDelete();
 closeTagBox();

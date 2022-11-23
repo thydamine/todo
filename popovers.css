@@ -86,9 +86,14 @@
 }
 .popoverBoxHeading {
     font-size: var(--popoverHeading);
-    font-weight: var(--panelHeadingWeight);
-    line-height: 0.85em;
+    outline: none;
+    border: none;
+    border-bottom: 1px solid var(--veryLightBG);
+    color: #fff;
+    background-color: var(--mainBG);  
     margin-bottom: 10px;
+    padding-bottom: 10px;
+    width: 85%;
 }
 .popoverBoxSubheading {
     font-size: var(--panelSubheading);

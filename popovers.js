@@ -7,13 +7,16 @@ function openShade(){
 }
 
 function populatePopover(blockId){
+    // Establish that this block is the active block
+    activeBlock = blockId;
+
     let block = proj.blocks[blockId];
     let html = "";
 
     html += '<div class="popoverBoxClose" onclick="closeShade();">&times;</div>';
     html += '<img src="img/placeholder.png" class="popoverFileThumbnail">';
     html += '<div class="popoverBoxContent">';
-    html += '    <div class="popoverBoxHeading">' + block.name + '</div>';
+    html += '    <input type="text" value="' + block.name + '" class="popoverBoxHeading" id="blockNameField" onchange="renameActiveBlock()">';
     html += '    <div class="popoverBoxSubheading">File Details</div>';
     html += '    <div class="popoverBoxTags" id="popoverTagContainer">';
     html += '        <div class="popoverBoxTag">&times; Tag 1</div>';
