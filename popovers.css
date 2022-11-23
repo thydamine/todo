@@ -85,7 +85,7 @@
     width: calc(100% - var(--popoverFileThumbnail) - var(--popoverPadding));
 }
 .popoverBoxHeading {
-    font-size: var(--panelHeading);
+    font-size: var(--popoverHeading);
     font-weight: var(--panelHeadingWeight);
     line-height: 0.85em;
     margin-bottom: 10px;
