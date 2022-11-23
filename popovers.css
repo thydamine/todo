@@ -23,10 +23,35 @@
     background-color: var(--lightBG);
     padding: var(--popoverButtonPadding);
     margin-bottom: 3px;
+    cursor: pointer;
+    opacity: 0.8;
+}
+.popoverBoxButton:hover {
+    opacity: 1;
 }
 .buttonDelete {
     background-color: var(--red);
     font-weight: 500;
+}
+.buttonConfirmationContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: right;
+}
+.buttonConfirmation {
+    font-weight: 500;
+    padding: 10px;
+    line-height: 1em;
+    border-radius: 7px;
+}
+.bcRed {
+    background-color: var(--red);
+}
+.bcGray {
+}
+.bcLabel {
+    font-weight: 500;
+    flex: 1;
 }
 .popoverBoxClose {
     position: absolute;
@@ -46,6 +71,7 @@
     width: var(--popoverFileThumbnail);
     height: var(--popoverFileThumbnail);
     object-fit: cover;
+    vertical-align: top;
 }
 
 .popoverBoxContent {
@@ -57,7 +83,7 @@
 .popoverBoxHeading {
     font-size: var(--panelHeading);
     font-weight: var(--panelHeadingWeight);
-    line-height: 1em;
+    line-height: 0.85em;
     margin-bottom: 10px;
 }
 .popoverBoxSubheading {
@@ -68,10 +94,11 @@
 .popoverBoxTags {
     display: flex;
     flex-wrap: wrap;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
     margin-top: 10px;
 }
 .popoverBoxTag {
+    display: flex;
     font-size: var(--tagFontSizeSmall);
     font-weight: 500;
     letter-spacing: 1px;
@@ -83,4 +110,15 @@
     border-radius: 4px;
     background-color: var(--tagBackground);
     cursor: pointer;
+}
+.popoverBoxNewTags {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 15px;
+    padding: 10px;
+    padding-bottom: 5px;
+    background-color: var(--lightBG);
+}
+.popoverBoxTagGray {
+    background-color: var(--veryLightBG);
 }
