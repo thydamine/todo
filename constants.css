@@ -24,6 +24,8 @@
     --green: #4bbe5e;
     --gray: #c2c7cb;
 
+    --popoverShadeOpacity: 0.4;
+
     /* STATIC SIZES */
     --panelPadding: 30px;
     --panelWidth: 300px;
@@ -42,12 +44,18 @@
 
     --buttonSize: 50px;
     --buttonMargin: 20px;
+
+    --popoverPadding: 20px;
+    --popoverTopMargin: 20vh;
+    --popoverWidth: 500px;
+    --popoverFileThumbnail: 200px;
     
     /* FONT SIZES */
     --projectHeaderFontSize: 20px;
 
     --panelHeading: 30px;
     --panelHeadingWeight: 500;
+    --panelSubheading: 20px;
 
     --chatInputFontSize: 16px;
 

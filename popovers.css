@@ -1,0 +1,52 @@
+.popoverShade {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, var(--popoverShadeOpacity));
+    z-index: 20;
+}
+.popoverBoxContainer {
+    position: relative;
+    top: var(--popoverTopMargin);
+    width: var(--popoverWidth);
+    padding: var(--popoverPadding);
+    display: block;
+    margin: auto;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--mainBG);
+}
+.popoverBoxClose {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    font-size: 30px;
+    font-weight: 100;
+}
+.popoverFileThumbnail {
+    width: var(--popoverFileThumbnail);
+    height: var(--popoverFileThumbnail);
+    object-fit: cover;
+}
+
+.popoverBoxContent {
+    float: right;
+    width: calc(100% - var(--popoverFileThumbnail) - var(--popoverPadding));
+}
+.popoverBoxHeading {
+    font-size: var(--panelHeading);
+    font-weight: var(--panelHeadingWeight);
+    margin-bottom: 10px;
+}
+.popoverBoxSubheading {
+    font-size: var(--panelSubheading);
+    margin-bottom: 10px;
+}

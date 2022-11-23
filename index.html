@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="blackboard.css">
     <link rel="stylesheet" href="header.css">
     <link rel="stylesheet" href="constants.css">
+    <link rel="stylesheet" href="popovers.css">
     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.13.2/themes/smoothness/jquery-ui.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.13.2/jquery-ui.min.js"></script>
@@ -20,6 +21,7 @@
     <script type="text/javascript" src="tags.js"></script>
     <script type="text/javascript" src="toggles.js"></script>
     <script type="text/javascript" src="blackboard.js"></script>
+    <script type="text/javascript" src="popovers.js"></script>
     <script type="text/javascript" src="initialize.js"></script>
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <meta name="description" content="Blackboard is a project manager that helps student groups organize and share ideas." />
@@ -49,19 +51,20 @@
                 <div class="panelNotificationSubheading">Tasks Due</div>
                 <div class="panelNotificationSubheading">Activity</div>
             </div>
-            <div class="boardBlockContainer">
-                <div class="boardBlock">Content</div><div class="boardBlockImg"></div>
-            </div><div class="boardBlockContainer">
-                <div class="boardBlock">Content</div>
-            </div><div class="boardBlockContainer">
-                <div class="boardBlock">Content</div>
-            </div><div class="boardBlockContainer">
-                <div class="boardBlock">Content</div>
-            </div><div class="boardBlockContainer">
-                <div class="boardBlock">Content</div>
-            </div>
+            <div id="blockZone"></div>
             <div class="buttonContainer">
                 <div class="button" id="plusBlackboard">+</div>
+            </div>
+        </div>
+    </div>
+    <div class="popoverShade" id="shade">
+        <div class="popoverBoxContainer">
+            <div class="popoverBoxClose">&times;</div>
+            <img src="img/placeholder.png" class="popoverFileThumbnail">
+            <div class="popoverBoxContent">
+                <div class="popoverBoxHeading">Placeholder</div>
+                <div class="popoverBoxSubheading">Placeholder</div>
+                <div class="popoverBoxDescription">Placeholder</div>
             </div>
         </div>
     </div>

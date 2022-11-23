@@ -28,6 +28,7 @@ body {
     padding: var(--panelPadding);
     width: var(--panelWidth);
     background-color: var(--darkerBG);
+    z-index: 10;
 }
 .panel_notification {
     right: calc(var(--panelWidth) * -1 - var(--panelPadding) * 2);

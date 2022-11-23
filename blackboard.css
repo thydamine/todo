@@ -1,11 +1,12 @@
 .boardBlockContainer {
+    position: relative;
     background-color: var(--lightBG);
     border-radius: 5px;
     color: #FFFFFF;
     margin-left: 20px;
     margin-top: 20px;
     width: calc((100vw / var(--numOfBlocks)) - 20px - (20px / var(--numOfBlocks)));
-    display: inline-flex;
+    display: inline-block;
     min-height: 160px;
 }
 .boardBlock {
@@ -16,8 +17,7 @@
 }
 .boardBlockImg {
     display: block;
-    margin-top: 10px;
-    margin-bottom: 10px;
+    width: 100%;
     object-fit: cover;
     background-color: var(--darkBG);
 }
