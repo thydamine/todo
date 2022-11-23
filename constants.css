@@ -19,6 +19,7 @@
     --yellow: #ffd400;
     --blue: #1eaef8;
     --orangered: #ff2f6c;
+    --red: #ff0000;
     --jade: #4aafa5;
     --beige: #d2c68d;
     --green: #4bbe5e;
@@ -49,13 +50,14 @@
     --popoverTopMargin: 20vh;
     --popoverWidth: 500px;
     --popoverFileThumbnail: 200px;
+    --popoverButtonPadding: 10px;
     
     /* FONT SIZES */
     --projectHeaderFontSize: 20px;
 
     --panelHeading: 30px;
     --panelHeadingWeight: 500;
-    --panelSubheading: 20px;
+    --panelSubheading: 15px;
 
     --chatInputFontSize: 16px;
 
@@ -65,6 +67,7 @@
     --taskLineItemFontWeight: 400;
 
     --tagFontSize: 18px;
+    --tagFontSizeSmall: 12px;
 
     --numOfBlocks: 6;
 }

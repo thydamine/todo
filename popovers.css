@@ -18,6 +18,16 @@
     align-items: center;
     background-color: var(--mainBG);
 }
+.popoverBoxButton {
+    display: block;
+    background-color: var(--lightBG);
+    padding: var(--popoverButtonPadding);
+    margin-bottom: 3px;
+}
+.buttonDelete {
+    background-color: var(--red);
+    font-weight: 500;
+}
 .popoverBoxClose {
     position: absolute;
     top: 0;
@@ -32,21 +42,45 @@
     font-weight: 100;
 }
 .popoverFileThumbnail {
+    display: inline-block;
     width: var(--popoverFileThumbnail);
     height: var(--popoverFileThumbnail);
     object-fit: cover;
 }
 
 .popoverBoxContent {
-    float: right;
+    position: relative;
+    display: inline-block;
+    margin-left: calc(var(--popoverPadding) - 5px);
     width: calc(100% - var(--popoverFileThumbnail) - var(--popoverPadding));
 }
 .popoverBoxHeading {
     font-size: var(--panelHeading);
     font-weight: var(--panelHeadingWeight);
+    line-height: 1em;
     margin-bottom: 10px;
 }
 .popoverBoxSubheading {
     font-size: var(--panelSubheading);
-    margin-bottom: 10px;
+    margin-bottom: 15px;
+}
+
+.popoverBoxTags {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 15px;
+    margin-top: 10px;
+}
+.popoverBoxTag {
+    font-size: var(--tagFontSizeSmall);
+    font-weight: 500;
+    letter-spacing: 1px;
+    line-height: 1em;
+    text-transform: uppercase;
+    margin-right: 5px;
+    margin-bottom: 5px;
+    padding: 5px 5px;
+    border-radius: 4px;
+    background-color: var(--tagBackground);
+    cursor: pointer;
 }
