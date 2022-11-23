@@ -39,6 +39,11 @@ proj.addTaskList("Milestone 3 Summary");
 proj.addBlock("Summary");
 proj.addBlock("Contract");
 proj.addBlock("Q3 Footnotes");
+proj.addBlock("General Notes");
+proj.addBlock("Meeting Minutes");
+proj.addBlock("Additional 1");
+proj.addBlock("Additional 2");
+proj.addBlock("Additional 3");
 
 /* Put some tasks on those lists */
 proj.taskLists[0].newTask("Set up GitHub repo");

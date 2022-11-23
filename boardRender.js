@@ -16,6 +16,7 @@ function renderBlocks(){
     proj.blocks.forEach(element => {
         html += getHtmlForBlock(i++);
     });
+    html += "</div>";
     document.getElementById("blockZone").innerHTML = html;
 }
 
