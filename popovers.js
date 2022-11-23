@@ -40,12 +40,22 @@ function populateTagBox(blockId){
     let block = proj.blocks[blockId];
     let html = "";
     for (i = 0; i < block.tags.length; i++){
-        html += '<div class="popoverBoxTag">&times; ' + block.tags[i] + '</div>';
+        let tag = block.tags[i];
+        html += '<div class="popoverBoxTag" onclick="proj.blocks[' + blockId + '].removeTag(' + tag.id + ')">&times; ' + block.tags[i].name + '</div>';
     }
     html += '<div class="popoverBoxTag popoverBoxTagGray" onclick="toggleTagBox(' + blockId + ');">&plus; New Tag</div>';
 
-    
     document.getElementById("popoverTagContainer").innerHTML = html;
+
+    let tagsNotInThisBlock = block.getTagsNotInThisBlock();
+    html = "";
+    for (i = 0; i < tagsNotInThisBlock.length; i++){
+        html += '<div class="popoverBoxTag" onclick="proj.blocks[' + blockId + '].addTag(' + tagsNotInThisBlock[i].id + ');">&plus; ' + tagsNotInThisBlock[i].name + '</div>';
+    }
+    if (html == ""){
+        html += '<div class="popoverBoxTag popoverBoxTagGray" onclick="jumpToTagWindow();">Create a new tag</div>';
+    }
+    document.getElementById("popoverTagBox").innerHTML = html;
 }
 
 function toggleTagBox(blockId){
@@ -58,6 +68,9 @@ function togglePanelDelete(){
 function closePanelDelete(){
     $("#popoverPanelDelete").fadeToggle(0);
 }
+function hideTagBox(){
+    $("#popoverTagBox").slideUp(0);
+}
 function closeTagBox(){
-    $("#popoverTagBox").slideToggle(0);
+    $("#popoverTagBox").slideUp(200);
 }
