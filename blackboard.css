@@ -8,6 +8,7 @@
     width: calc((100vw / var(--numOfBlocks)) - 20px - (20px / var(--numOfBlocks)));
     display: inline-block;
     min-height: 160px;
+    cursor: pointer;
 }
 .boardBlock {
     display: block;

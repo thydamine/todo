@@ -46,8 +46,12 @@
 }
 .bcRed {
     background-color: var(--red);
+    border-bottom: 2px solid rgba(0, 0, 0, 0.5);
+    cursor: pointer;
 }
 .bcGray {
+    cursor: pointer;
+    background-color: var(--lightBG);
 }
 .bcLabel {
     font-weight: 500;
