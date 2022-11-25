@@ -17,6 +17,18 @@
     font-weight: 500;
     text-align: left;
 }
+.boardBlockVersion {
+    font-size: 10px;
+    line-height: 1em;
+    font-weight: 800;
+    color: #000000;
+    background-color: #f9f9f9;
+    padding: 4px;
+    border-radius: 4px;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+}
 .boardBlockImg {
     display: block;
     width: 100%;

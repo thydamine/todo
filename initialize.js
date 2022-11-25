@@ -41,9 +41,9 @@ proj.addBlock("Contract");
 proj.addBlock("Q3 Footnotes");
 proj.addBlock("General Notes");
 proj.addBlock("Meeting Minutes");
-proj.addBlock("Additional 1");
-proj.addBlock("Additional 2");
-proj.addBlock("Additional 3");
+proj.addBlock("Group Ideas");
+proj.addBlock("Friday Meeting Outline");
+proj.addBlock("Function Prototypes");
 
 /* Put some tasks on those lists */
 proj.taskLists[0].newTask("Set up GitHub repo");
