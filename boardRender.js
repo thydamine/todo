@@ -3,9 +3,11 @@ function getHtmlForBlock(blockId){
     let block = proj.blocks[blockId];
 
     html += '<div class="boardBlockContainer" onclick="populatePopover(' + blockId + ');populateTagBox(' + blockId + ')">';
-    html += '<div class="boardBlockVersion">v';
-    html += block.versionNumber;
-    html += '</div>';
+    if (block.versionNumber > 1){
+        html += '<div class="boardBlockVersion">v';
+        html += block.versionNumber;
+        html += '</div>';
+    }
     html += '<img class="boardBlockImg" id="bbItem1" src="img/placeholder.png">';
     html += '<div class="boardBlock">' + block.name + '</div>';
     html += '</div>';
