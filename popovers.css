@@ -70,19 +70,40 @@
     font-size: 30px;
     font-weight: 100;
 }
-.popoverFileThumbnail {
+.popoverFileThumbnailContainer {
     display: inline-block;
+    position: relative;
+    vertical-align: top;
+}
+.popoverFileThumbnail {
+    display: block;
     width: var(--popoverFileThumbnail);
     height: var(--popoverFileThumbnail);
     object-fit: cover;
-    vertical-align: top;
+}
+.popoverVersionContainer {
+    display: block;
+    font-size: 12px;
+    width: var(--popoverFileThumbnail);
+    border-bottom: 1px solid var(--veryLightBG);
+    padding: 5px;
+}
+.popoverVersion {
+    display: block;
+    padding: 5px;
+    cursor: pointer;
+}
+.popoverVersionDate {
+    float: right;
+    color: var(--lightText);
 }
 
 .popoverBoxContent {
     position: relative;
+    right: 0;
     display: inline-block;
     margin-left: calc(var(--popoverPadding) - 5px);
-    width: calc(100% - var(--popoverFileThumbnail) - var(--popoverPadding));
+    width: calc(100% - var(--popoverFileThumbnail) - var(--popoverPadding) * 2 + 5px);
 }
 .popoverBoxHeading {
     font-size: var(--popoverHeading);

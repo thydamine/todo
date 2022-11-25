@@ -14,7 +14,10 @@ function populatePopover(blockId){
     let html = "";
 
     html += '<div class="popoverBoxClose" onclick="closeShade();">&times;</div>';
+    html += '<div class="popoverFileThumbnailContainer">';
     html += '<img src="img/placeholder.png" class="popoverFileThumbnail">';
+    html += '<div class="popoverVersionContainer" id="popoverVersions">Content</div>';
+    html += '</div>';
     html += '<div class="popoverBoxContent">';
     html += '    <input type="text" value="' + block.name + '" class="popoverBoxHeading" id="blockNameField" onchange="renameActiveBlock()">';
     html += '    <div class="popoverBoxSubheading">' + block.dateAddedString + '</div>';
@@ -25,8 +28,9 @@ function populatePopover(blockId){
     html += '        <div class="popoverBoxTag popoverBoxTagGray" onclick="toggleTagBox(' + blockId + ');">&plus; New Tag</div>';
     html += '    </div>';
     html += '    <div class="popoverBoxNewTags" id="popoverTagBox" style="display:none;"><div class="popoverBoxTag">&plus; Tag 1</div></div>';
-    html += '    <div class="popoverBoxButton">Download (' + block.fileSizeString + ')</div>';
     html += '    <div class="popoverBoxButton" onclick="setFocusToTextBox();">Rename</div>';
+    html += '    <div class="popoverBoxButton">Download Latest Version (' + block.fileSizeString + ')</div>';
+    html += '    <div class="popoverBoxButton" onclick="createNewVersion();">Upload a New Version</div>';
     html += '    <div class="popoverBoxButton buttonDelete" onclick="togglePanelDelete();">Delete File</div>';
     html += '    <div class="buttonConfirmationContainer" id="popoverPanelDelete" style="display:none;">';
     html += '        <div class="buttonConfirmation bcLabel">Are you sure?</div>';
@@ -38,6 +42,7 @@ function populatePopover(blockId){
     document.getElementById("popoverBlock").innerHTML = html;
 
     openShade();
+    populateVersionBox();
 }
 function populateTagBox(blockId){
     let block = proj.blocks[blockId];
@@ -60,6 +65,18 @@ function populateTagBox(blockId){
     }
     document.getElementById("popoverTagBox").innerHTML = html;
 }
+function populateVersionBox(){
+    let block = proj.blocks[activeBlock];
+    let html = "";
+    for (i = 0; i < block.versions.length && i < 5; i++){
+        let version = block.versions[i];
+        html += '<div class="popoverVersion">';
+        html += '    <div class="popoverVersionDate">' + version.dateAddedString + '</div>';
+        html += '    <div class="popoverVersionSize">Version ' + version.versionNumber + '</div>';
+        html += '</div>';
+    }
+    document.getElementById("popoverVersions").innerHTML = html;
+}
 
 function toggleTagBox(blockId){
     populateTagBox(blockId);
@@ -79,4 +96,14 @@ function closeTagBox(){
 }
 function setFocusToTextBox(){
     document.getElementById("blockNameField").focus();
+}
+function createNewVersion(){
+    let block = proj.blocks[activeBlock];
+    let newVersion = block.createNewVersion();
+    console.log(activeBlock);
+    activeBlock = newVersion.id;
+    proj.blocks[activeBlock] = newVersion;
+    console.log(activeBlock);
+    renderBlocks();
+    populateVersionBox();
 }

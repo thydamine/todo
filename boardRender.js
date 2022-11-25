@@ -13,8 +13,13 @@ function getHtmlForBlock(blockId){
 function renderBlocks(){
     let html = "";
     let i = 0;
-    proj.blocks.forEach(element => {
-        html += getHtmlForBlock(i++);
+    // create a reverse order version of the blocks array
+    let blocks = proj.blocks.slice(0);
+    blocks.reverse();
+    blocks.forEach(element => {
+        if (element.isNewestVersion){
+            html += getHtmlForBlock(element.id);
+        }
     });
     html += "</div>";
     document.getElementById("blockZone").innerHTML = html;
