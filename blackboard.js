@@ -17,6 +17,11 @@ class Block {
         let index = proj.blocks.indexOf(this);
         proj.blocks.splice(index, 1);
     }
+    deleteSpecificBlock(){
+        // Delete this block only, not older versions
+        let index = proj.blocks.indexOf(this);
+        proj.blocks.splice(index, 1);
+    }
     hideBlock(){
         // Messy solution, but it works
         this.newerVersion = "hidden";
@@ -46,6 +51,19 @@ class Block {
         this.newerVersion = newVersion;
         newVersion.olderVersion = this;
         return newVersion;
+    }
+    deleteEveryBlockWithAVersionHigherThanThis(versionNumber){
+        // Delete every block with a version higher than this one
+        let versions = this.versions;
+        for (let i = 0; i < versions.length; i++){
+            if (versions[i].versionNumber > versionNumber){
+                versions[i].deleteSpecificBlock();
+            }
+            if (versions[i].versionNumber == versionNumber){
+                versions[i].newerVersion = null;
+                activeBlock = proj.blocks.indexOf(versions[i]);
+            }
+        }
     }
     get fileSizeString(){
         return this.fileSize + " KB";
@@ -82,7 +100,9 @@ class Block {
         let versions = [];
         let newestVersion = this.newestVersion;
         for (let i = 0; i < this.versionCount; i++){
-            versions.push(newestVersion);
+            if (newestVersion != "hidden"){
+                versions.push(newestVersion);
+            }
             newestVersion = newestVersion.olderVersion;
         }
         return versions;

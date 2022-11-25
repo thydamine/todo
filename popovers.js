@@ -31,7 +31,7 @@ function populatePopover(blockId){
     html += '    <div class="popoverBoxButton" onclick="setFocusToTextBox();">Rename</div>';
     html += '    <div class="popoverBoxButton">Download Latest Version (' + block.fileSizeString + ')</div>';
     html += '    <div class="popoverBoxButton" onclick="createNewVersion();">Upload a New Version</div>';
-    html += '    <div class="popoverBoxButton buttonDelete" onclick="togglePanelDelete();">Delete File</div>';
+    html += '    <div class="popoverBoxButton buttonDelete" onclick="togglePanelDelete();">Delete All Versions</div>';
     html += '    <div class="buttonConfirmationContainer" id="popoverPanelDelete" style="display:none;">';
     html += '        <div class="buttonConfirmation bcLabel">Are you sure?</div>';
     html += '        <div class="buttonConfirmation bcRed" onclick="deleteBlocks(' + blockId + ');">Delete</div>';
@@ -72,9 +72,17 @@ function populateVersionBox(){
     console.log("Populating version box");
     for (i = 0; i < block.versions.length && i < 5; i++){
         let version = block.versions[i];
+        let boldStatus = "";
+        if (i === 0){
+            boldStatus = "bold";
+        }
         html += '<div class="popoverVersion">';
         html += '    <div class="popoverVersionDate">' + version.dateAddedString + '</div>';
-        html += '    <div class="popoverVersionSize">Version ' + version.versionNumber + '</div>';
+        html += '    <div class="popoverVersionSize ' + boldStatus + '" onclick="toggleVersionRollback(' + version.versionNumber + ');">Version ' + version.versionNumber + '</div>';
+        html += '    <div class="popoverVersionRollbackContainer" style="display:none;" id="popoverVersionRollback' + version.versionNumber + '">';
+        html += '        <div class="popoverVersionRollback" onclick="rollbackToVersion(' + version.versionNumber + ');">Revert to Version ' + version.versionNumber + '</div>';
+        html += '        <div class="popoverVersionRollbackCancel" onclick="toggleVersionRollback(' + version.versionNumber + ');">Cancel</div>';
+        html += '    </div>';
         html += '</div>';
     }
     document.getElementById("popoverVersions").innerHTML = html;
@@ -86,6 +94,9 @@ function toggleTagBox(blockId){
 }
 function togglePanelDelete(){
     $("#popoverPanelDelete").fadeToggle(200);
+}
+function toggleVersionRollback(versionId){
+    $("#popoverVersionRollback" + versionId).slideToggle(200);
 }
 function closePanelDelete(){
     $("#popoverPanelDelete").fadeToggle(0);
@@ -106,6 +117,13 @@ function createNewVersion(){
     activeBlock = newVersion.id;
     proj.blocks[activeBlock] = newVersion;
     console.log(activeBlock);
+    renderBlocks();
+    populatePopover(activeBlock);
+    populateVersionBox();
+}
+function rollbackToVersion(versionId){
+    let block = proj.blocks[activeBlock];
+    block.deleteEveryBlockWithAVersionHigherThanThis(versionId);
     renderBlocks();
     populatePopover(activeBlock);
     populateVersionBox();
