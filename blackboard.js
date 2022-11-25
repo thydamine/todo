@@ -27,7 +27,13 @@ class Block {
         this.newerVersion = "hidden";
     }
     addTag(tagId){
-        this.tags.push(proj.tags[tagId]);
+        let tagToAdd;
+        proj.tags.forEach(tag => {
+            if (tag.id == tagId){
+                tagToAdd = tag;
+            }
+        });
+        this.tags.push(tagToAdd);
         populateTagBox(this.id);
         closeTagBox();
     }
@@ -38,11 +44,11 @@ class Block {
     }
     getTagsNotInThisBlock(){
         let tagsNotInThisBlock = [];
-        for (let i = 0; i < proj.tags.length; i++){
-            if (!this.tags.includes(proj.tags[i])){
-                tagsNotInThisBlock.push(proj.tags[i]);
+        proj.tags.forEach(tag => {
+            if (!this.tags.includes(tag)){
+                tagsNotInThisBlock.push(tag);
             }
-        }
+        });
         return tagsNotInThisBlock;
     }
     createNewVersion(){

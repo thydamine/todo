@@ -126,11 +126,10 @@ function getHtmlForTaskItem(listIndex, taskIndex){
  */
  function getHtmlForTags(){
     let html = "";
-    for (let i = 0; i < projects[currentProject].tags.length; i++){
-        let tag = projects[currentProject].tags[i];
-        html += '<div class="panelTagsTagCore">' + tag.name + '</div>';
-    }
-
+    projects[currentProject].tags.forEach(tag => {
+        html += '<div class="panelTagsTagCore"><span onclick="deleteTagById(' + tag.id + ')" style="cursor:pointer">&times;</span> ' + tag.name + '</div>';
+    });
+    
     return html;
 }
 /**

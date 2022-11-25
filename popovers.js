@@ -48,10 +48,9 @@ function populatePopover(blockId){
 function populateTagBox(blockId){
     let block = proj.blocks[blockId];
     let html = "";
-    for (i = 0; i < block.tags.length; i++){
-        let tag = block.tags[i];
-        html += '<div class="popoverBoxTag" onclick="proj.blocks[' + blockId + '].removeTag(' + tag.id + ')">&times; ' + block.tags[i].name + '</div>';
-    }
+    block.tags.forEach(tag => {
+        html += '<div class="popoverBoxTag" onclick="proj.blocks[' + blockId + '].removeTag(' + tag.id + ')">&times; ' + tag.name + '</div>';
+    });
     html += '<div class="popoverBoxTag popoverBoxTagGray" onclick="toggleTagBox(' + blockId + ');">&plus; New Tag</div>';
 
     document.getElementById("popoverTagContainer").innerHTML = html;
