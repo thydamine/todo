@@ -10,8 +10,16 @@ class Block {
         this.versionNumber = this.versionCount;
     }
     deleteBlock(){
+        // Delete this block and every older version
+        if (this.olderVersion != null){
+            this.olderVersion.deleteBlock();
+        }
         let index = proj.blocks.indexOf(this);
         proj.blocks.splice(index, 1);
+    }
+    hideBlock(){
+        // Messy solution, but it works
+        this.newerVersion = "hidden";
     }
     addTag(tagId){
         this.tags.push(proj.tags[tagId]);

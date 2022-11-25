@@ -109,10 +109,12 @@
     font-size: var(--popoverHeading);
     border: none;
     border-bottom: 1px solid var(--veryLightBG);
+    border-top: 1px solid var(--veryLightBG);
     color: #fff;
     background-color: var(--mainBG);  
     margin-bottom: 10px;
     padding-bottom: 10px;
+    padding-top: 10px;
     width: 85%;
 }
 .popoverBoxSubheading {

@@ -3,7 +3,7 @@ function closeShade(){
     shade.style.display = "none";
 }
 function openShade(){
-    $("#shade").fadeToggle(200);
+    $("#shade").fadeIn(200);
 }
 
 function populatePopover(blockId){
@@ -20,7 +20,7 @@ function populatePopover(blockId){
     html += '</div>';
     html += '<div class="popoverBoxContent">';
     html += '    <input type="text" value="' + block.name + '" class="popoverBoxHeading" id="blockNameField" onchange="renameActiveBlock()">';
-    html += '    <div class="popoverBoxSubheading">' + block.dateAddedString + '</div>';
+    html += '    <div class="popoverBoxSubheading">Uploaded by <i>Test User</i></div>';
     html += '    <div class="popoverBoxTags" id="popoverTagContainer">';
     html += '        <div class="popoverBoxTag">&times; Tag 1</div>';
     html += '        <div class="popoverBoxTag">&times; Tag 2</div>';
@@ -34,8 +34,8 @@ function populatePopover(blockId){
     html += '    <div class="popoverBoxButton buttonDelete" onclick="togglePanelDelete();">Delete File</div>';
     html += '    <div class="buttonConfirmationContainer" id="popoverPanelDelete" style="display:none;">';
     html += '        <div class="buttonConfirmation bcLabel">Are you sure?</div>';
-    html += '        <div class="buttonConfirmation bcRed">Delete</div>';
-    html += '        <div class="buttonConfirmation bcGray">Cancel</div>';
+    html += '        <div class="buttonConfirmation bcRed" onclick="deleteBlocks(' + blockId + ');">Delete</div>';
+    html += '        <div class="buttonConfirmation bcGray" onclick="togglePanelDelete();">Cancel</div>';
     html += '    </div>';
     html += '</div>';
 
@@ -43,6 +43,7 @@ function populatePopover(blockId){
 
     openShade();
     populateVersionBox();
+    populateTagBox(blockId);
 }
 function populateTagBox(blockId){
     let block = proj.blocks[blockId];
@@ -68,6 +69,7 @@ function populateTagBox(blockId){
 function populateVersionBox(){
     let block = proj.blocks[activeBlock];
     let html = "";
+    console.log("Populating version box");
     for (i = 0; i < block.versions.length && i < 5; i++){
         let version = block.versions[i];
         html += '<div class="popoverVersion">';
@@ -105,5 +107,11 @@ function createNewVersion(){
     proj.blocks[activeBlock] = newVersion;
     console.log(activeBlock);
     renderBlocks();
+    populatePopover(activeBlock);
     populateVersionBox();
+}
+function deleteBlocks(blockId){
+    proj.blocks[blockId].hideBlock(); // This might be fishy, bug check
+    closeShade();
+    renderBlocks();
 }
