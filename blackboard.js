@@ -1,9 +1,12 @@
 class Block {
-    constructor(name = "New File", path = ""){
+    constructor(name = "New File", nextVersion = null){
+        this.id = proj.blocks.length;
         this.name = name;
         this.path = path;
+        this.fileSize = Math.round(Math.random() * 1000);
+        this.dateAdded = new Date();
         this.tags = [];
-        this.id = proj.blocks.length;
+        this.nextVersion = nextVersion;
     }
     deleteBlock(){
         let index = proj.blocks.indexOf(this);
@@ -27,6 +30,12 @@ class Block {
             }
         }
         return tagsNotInThisBlock;
+    }
+    get fileSizeString(){
+        return this.fileSize + " KB";
+    }
+    get dateAddedString(){
+        return this.dateAdded.toDateString();
     }
 }
 

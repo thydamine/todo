@@ -8,6 +8,7 @@
     min-height: 160px;
     width: calc(100% / var(--numOfBlocks) - 20px);
     cursor: pointer;
+    vertical-align: top;
 }
 .boardBlock {
     display: block;

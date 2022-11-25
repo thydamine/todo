@@ -17,7 +17,7 @@ function populatePopover(blockId){
     html += '<img src="img/placeholder.png" class="popoverFileThumbnail">';
     html += '<div class="popoverBoxContent">';
     html += '    <input type="text" value="' + block.name + '" class="popoverBoxHeading" id="blockNameField" onchange="renameActiveBlock()">';
-    html += '    <div class="popoverBoxSubheading">File Details</div>';
+    html += '    <div class="popoverBoxSubheading">' + block.dateAddedString + '</div>';
     html += '    <div class="popoverBoxTags" id="popoverTagContainer">';
     html += '        <div class="popoverBoxTag">&times; Tag 1</div>';
     html += '        <div class="popoverBoxTag">&times; Tag 2</div>';
@@ -25,8 +25,8 @@ function populatePopover(blockId){
     html += '        <div class="popoverBoxTag popoverBoxTagGray" onclick="toggleTagBox(' + blockId + ');">&plus; New Tag</div>';
     html += '    </div>';
     html += '    <div class="popoverBoxNewTags" id="popoverTagBox" style="display:none;"><div class="popoverBoxTag">&plus; Tag 1</div></div>';
-    html += '    <div class="popoverBoxButton">Download (153 KB)</div>';
-    html += '    <div class="popoverBoxButton">Rename</div>';
+    html += '    <div class="popoverBoxButton">Download (' + block.fileSizeString + ')</div>';
+    html += '    <div class="popoverBoxButton" onclick="setFocusToTextBox();">Rename</div>';
     html += '    <div class="popoverBoxButton buttonDelete" onclick="togglePanelDelete();">Delete File</div>';
     html += '    <div class="buttonConfirmationContainer" id="popoverPanelDelete" style="display:none;">';
     html += '        <div class="buttonConfirmation bcLabel">Are you sure?</div>';
@@ -76,4 +76,7 @@ function hideTagBox(){
 }
 function closeTagBox(){
     $("#popoverTagBox").slideUp(200);
+}
+function setFocusToTextBox(){
+    document.getElementById("blockNameField").focus();
 }

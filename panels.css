@@ -55,19 +55,22 @@ body {
     right: calc((var(--panelIcon)) * -1);
     top: calc(30% - var(--panelIcon) * 1.5);
     width: var(--panelIcon);
-    /* background-color: var(--lightBG); */
+    background-color: var(--lightBG);
 }
 .iconTab {
     display: block;
     width: var(--panelIcon);
     height: var(--panelIcon);
     text-align: center;
+    opacity: 0.9;
 }
 .iconTab:hover {
     background-color: var(--darkerBG);
     cursor: pointer;
+    opacity: 1;
 }
 .iconImg {
     margin-top: calc(var(--panelIcon) / 5);
     width: calc(var(--panelIcon) * (3/5));
+    background:none;
 }
