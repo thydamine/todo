@@ -106,7 +106,7 @@ function populateTaskListBox(listId){
                     checkIconPath = "./img/checkedRadio.png";
                     html += '<div class="popoverTaskContainer" id="taskPopoverItem' + task.id + '">';
                     html += '<div class="popoverTaskTitle taskFaded">';
-                    html += '<img src="' + checkIconPath + '" class="panelTaskCheckbox" id="taskCheckPop' + task.id + '" onclick="processTaskCompletion(' + task.id + ');"> ';
+                    html += '<img src="' + checkIconPath + '" class="panelTaskCheckbox" id="taskCheckPop' + task.id + '" onclick="processTaskUncompletion(' + task.id + ');"> ';
                     html += task.name;
                     html += '</div>';
                     html += '</div>';

@@ -135,6 +135,22 @@ function processTaskCompletion(taskId){
     
     //populatePanel(1);
 }
+function processTaskUncompletion(taskId){
+    // Search every task list for a task that matches the id
+    console.log("Processing task uncompletion for task " + taskId);
+    let listId;
+    proj.taskLists.forEach(list => {
+        list.tasks.forEach(task => {
+            if (task.id == taskId){
+                console.log("Found task " + taskId);
+                task.markIncomplete();
+                listId = list.id;
+            }
+        });
+    });
+    populatePanel(1);
+    populateTaskListBox(listId);
+}
 function generateUniqueTaskId(){
     let id = Math.floor(Math.random() * 1000000);
     let idIsUnique = true;
