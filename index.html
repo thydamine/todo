@@ -53,9 +53,9 @@
             </div>
             <div id="blockZone" class="blockZone"></div>
             <div class="buttonContainer">
-                <div class="plusStack" id="plusStack">
-                    <div class="plusStackItem" onclick="createRandomBlock();">+ New Block</div>
-                    <div class="plusStackItem" onclick="showInviteBox();">+ Group Member</div>
+                <div class="plusStack" id="plusStack" style="display: none;">
+                    <div class="plusStackItem" onclick="createRandomBlock();togglePlusStack();">+ New Block</div>
+                    <div class="plusStackItem" onclick="showInviteBox();togglePlusStack();">+ Group Member</div>
                 </div>
                 <div class="button" id="plusBlackboard" onclick="togglePlusStack();">+</div>
             </div>
