@@ -43,7 +43,17 @@ function showInviteBox(){
     $("#popoverInvite").fadeIn(200, "linear");
 }
 function closeInviteBox(){
-    $("#popoverInvite").hide();
+    closeShade();
+}
+function showTaskBox(listId){
+    console.log("Showing task box for id " + listId);
+    openShade();
+    $("#popoverTaskList").fadeIn(200, "linear");
+    populateTaskListBox(listId);
+}
+function hideTaskBox(){
+    $("#popoverTaskList").hide();
+    closeShade();
 }
 
 renderBlocks();

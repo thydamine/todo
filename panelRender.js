@@ -89,7 +89,7 @@ function getHtmlForTaskList(listIndex){
     let title = proj.taskLists[listIndex].nameShortened; 
     let list = proj.taskLists[listIndex].tasks;
 
-    html += '<div class="panelTasksHeader">';
+    html += '<div class="panelTasksHeader" onclick="showTaskBox(' + proj.taskLists[listIndex].id + ')">';
     html += title;
     html += '</div>';
     html += '<div id="">';

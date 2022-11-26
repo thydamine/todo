@@ -64,12 +64,13 @@
     <div class="popoverShade" id="shade">
         <div class="popoverBoxContainer" id="popoverBlock"></div>
         <div class="popoverInviteContainer" id="popoverInvite" style="display:none;">
-            <div class="popoverBoxClose" onclick="closeShade();">&times;</div>
+            <div class="popoverBoxClose" onclick="closeInviteBox();">&times;</div>
             <div class="">Invite a New Group Member</div>
             <input class="popoverInviteInput" id="inviteInput" type="text" placeholder="Email">
             <button class="popoverInviteSend" id="inviteSend" onclick="sendInvite();">Send</button>
             <div class="popoverInviteConfirmation" id="inviteConfirmation" style="display: none;">Invite Sent!</div>
         </div>
+        <div class="popoverBoxContainer" id="popoverTaskList" style="display: none;">Task Stuff</div>
     </div>
 </body>
 <script type="text/javascript" src="panelRender.js"></script>

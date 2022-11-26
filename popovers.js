@@ -1,4 +1,5 @@
 function closeShade(){
+    console.log("Closing shade");
     let shade = document.getElementById("shade");
     shade.style.display = "none";
 
@@ -8,7 +9,11 @@ function closeShade(){
 
     // Hide the invite box
     let invite = document.getElementById("popoverInvite");
-    popover.style.display = "none";
+    invite.style.display = "none";
+
+    // Hide the task box
+    let task = document.getElementById("popoverTaskList");
+    task.style.display = "none";
 }
 function openShade(){
     $("#shade").fadeIn(200);
@@ -50,7 +55,6 @@ function populatePopover(blockId){
     document.getElementById("popoverBlock").innerHTML = html;
 
     openShade();
-    closeInviteBox();
     document.getElementById("popoverBlock").style.display = "block";
     populateVersionBox();
     populateTagBox(blockId);
@@ -74,6 +78,28 @@ function populateTagBox(blockId){
         html += '<div class="popoverBoxTag popoverBoxTagGray" onclick="jumpToTagWindow();">Create a new tag</div>';
     }
     document.getElementById("popoverTagBox").innerHTML = html;
+}
+function populateTaskListBox(listId){
+    console.log("Rendering list " + listId);
+    let html = "";
+    // Search every list to find one with a matching id
+    proj.taskLists.forEach(list => {
+        if (list.id == listId){
+            html += '<div class="popoverBoxClose" onclick="hideTaskBox();">&times;</div>';
+            html += '<div class="popoverBoxContent">';
+            html += '    <input type="text" value="' + list.name + '" class="popoverBoxHeading" id="listNameField" onchange="renameActiveList()">';
+            html += '    <div class="popoverBoxSubheading">Created by <i>Test User</i></div>';
+            html += '    <div class="popoverBoxButton" onclick="setFocusToListNameField();">Rename</div>';
+            html += '    <div class="popoverBoxButton" onclick="togglePanelDelete();">Delete</div>';
+            html += '    <div class="buttonConfirmationContainer" id="popoverPanelDelete" style="display:none;">';
+            html += '        <div class="buttonConfirmation bcLabel">Are you sure?</div>';
+            html += '        <div class="buttonConfirmation bcRed" onclick="deleteTaskList(' + listId + ');">Delete</div>';
+            html += '        <div class="buttonConfirmation bcGray" onclick="togglePanelDelete();">Cancel</div>';
+            html += '    </div>';
+            html += '</div>';
+        }
+    });
+    document.getElementById("popoverTaskList").innerHTML = html;
 }
 function populateVersionBox(){
     let block = proj.blocks[activeBlock];
