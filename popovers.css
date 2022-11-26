@@ -243,6 +243,15 @@
     font-size: 16px;
     cursor: pointer;
 }
+.popoverTaskTitleInput {
+    font-weight: 500;
+    font-size: 16px;
+    border: none;
+    background-color: var(--lightBG);
+    width: 70%;
+    padding: 0px;
+    color: #ffffff;
+}
 .taskFaded {
     opacity: 0.5;
 }

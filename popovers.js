@@ -92,24 +92,12 @@ function populateTaskListBox(listId){
             html += '    <div class="popoverBoxSubheading">Created by <i>Test User</i></div>';
             list.tasks.forEach(task => {
                 if (!task.complete){
-                    checkIconPath = "./img/circleUnfilled.png";
-                    html += '<div class="popoverTaskContainer" id="taskPopoverItem' + task.id + '">';
-                    html += '<div class="popoverTaskTitle">';
-                    html += '<img src="' + checkIconPath + '" class="panelTaskCheckbox" id="taskCheckPop' + task.id + '" onclick="processTaskCompletion(' + task.id + ');"> ';
-                    html += task.name;
-                    html += '</div>';
-                    html += '</div>';
+                    html += getHtmlForPopoverTaskItem(task);
                 }
             });
             list.tasks.forEach(task => {
                 if (task.complete){
-                    checkIconPath = "./img/checkedRadio.png";
-                    html += '<div class="popoverTaskContainer" id="taskPopoverItem' + task.id + '">';
-                    html += '<div class="popoverTaskTitle taskFaded">';
-                    html += '<img src="' + checkIconPath + '" class="panelTaskCheckbox" id="taskCheckPop' + task.id + '" onclick="processTaskUncompletion(' + task.id + ');"> ';
-                    html += task.name;
-                    html += '</div>';
-                    html += '</div>';
+                    html += getHtmlForPopoverTaskItem(task);
                 }
             });
             html += '<div class="popoverTaskSpacer"></div>';
@@ -123,6 +111,27 @@ function populateTaskListBox(listId){
         }
     });
     document.getElementById("popoverTaskList").innerHTML = html;
+}
+function getHtmlForPopoverTaskItem(task){
+    let checkIconPath;
+    let functionName;
+    let html = "";
+    if (!task.complete){
+        checkIconPath = "./img/circleUnfilled.png";
+        functionName = "processTaskCompletion";
+        opacity = "1";
+    } else {
+        checkIconPath = "./img/checkedRadio.png";
+        functionName = "processTaskUncompletion";
+        opacity = "0.5";
+    }
+    html += '<div class="popoverTaskContainer" id="taskPopoverItem' + task.id + '">';
+    html += '<div class="popoverTaskTitle" style="opacity: ' + opacity + '">';
+    html += '<img src="' + checkIconPath + '" class="panelTaskCheckbox" id="taskCheckPop' + task.id + '" onclick="' + functionName + '(' + task.id + ');"> ';
+    html += '<input class="popoverTaskTitleInput" type="text" value="' + task.name + '" id="taskNamePop' + task.id + '" onchange="renameTask(' + task.id + ');">';
+    html += '</div>';
+    html += '</div>';
+    return html;
 }
 function populateVersionBox(){
     let block = proj.blocks[activeBlock];

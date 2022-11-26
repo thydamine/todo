@@ -52,6 +52,9 @@ class TaskList {
         }
         return this.name;
     }
+    rename(newName){
+        this.name = newName;
+    }
 }
 /**
  * Format for a specific task item, can be assigned or marked as completed.
@@ -164,4 +167,18 @@ function generateUniqueTaskId(){
     } else {
         return generateUniqueTaskId();    
     }
+}
+function renameTask(taskId){
+    let listId;
+    let newName = document.getElementById("taskNamePop" + taskId).value;
+    proj.taskLists.forEach(list => {
+        list.tasks.forEach(task => {
+            if (task.id == taskId){
+                listId = list.id;
+                task.rename(newName);
+            }
+        });
+    });
+    populatePanel(1);
+    populateTaskListBox(listId);
 }
