@@ -127,9 +127,11 @@ function getHtmlForTaskItem(listIndex, taskIndex){
  function getHtmlForTags(){
     let html = "";
     projects[currentProject].tags.forEach(tag => {
-        html += '<div class="panelTagsTagCore"><span onclick="deleteTagById(' + tag.id + ')" style="cursor:pointer">&times;</span> ' + tag.name + '</div>';
+        html += '<div class="panelTagsTagCore"><span onclick="deleteTagById(' + tag.id + ')" style="cursor:pointer">&times;</span>';
+        html += '<input type="text" class="panelTagsInput" id="tagLabel' + tag.id + '" value="' + tag.name + '" onchange="updateTagLabel(' + tag.id + ');"></div>';
+        html += '</div>';
     });
-    
+
     return html;
 }
 /**

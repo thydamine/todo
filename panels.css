@@ -50,6 +50,18 @@ body {
     color: var(--deEmphasizedSmallText);
     margin-bottom: 3px;
 }
+.panelTagsInput {
+    /* Input for adding tags */
+    width: 100px;
+    border: none;
+    border-radius: 5px;
+    padding: 0px;
+    padding-left: 5px;
+    background-color: var(--tagBackground);
+    color: var(--smallText);
+    font-size: 18px;
+    font-weight: 300;
+}
 .iconTabContainer {
     position: absolute;
     right: calc((var(--panelIcon)) * -1);

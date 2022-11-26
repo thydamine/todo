@@ -21,12 +21,21 @@ class Tag {
 }
 
 function deleteTagById(tagId){
-    console.log("Trying to delete tag with id " + tagId);
     let tags = proj.tags;
     tags.forEach(tag => {
         if (tag.id == tagId){
             tag.deleteTag();
             populatePanel(2); // 2 is the tag panel
+            return;
+        }
+    });
+}
+function updateTagLabel(tagId){
+    let tags = proj.tags;
+    tags.forEach(tag => {
+        if (tag.id == tagId){
+            tag.name = document.getElementById("tagLabel" + tagId).value;
+            populatePanel(2);
             return;
         }
     });
