@@ -70,14 +70,12 @@ function getHtmlForDiscussion(){
  */
 function getHtmlForTasks(){
     let html = "";
-    html += '<div class="panelTasksContainer">';
     for (let i = 0; i < projects[currentProject].numberOfTaskLists; i++){
         let list = projects[currentProject].taskLists[i];
         html += '<div class="panelTasksList">';
         html += getHtmlForTaskList(i);
         html += '</div>';
     }
-    html += '</div>';
 
     return html;
 }
@@ -88,7 +86,7 @@ function getHtmlForTasks(){
  */
 function getHtmlForTaskList(listIndex){
     let html = "";
-    let title = proj.taskLists[listIndex].name; 
+    let title = proj.taskLists[listIndex].nameShortened; 
     let list = proj.taskLists[listIndex].tasks;
 
     html += '<div class="panelTasksHeader">';
@@ -99,6 +97,11 @@ function getHtmlForTaskList(listIndex){
         html += getHtmlForTaskItem(listIndex, i);
     }
     html += '</div>';
+
+    html += '<div class="buttonContainer">';
+    html += '<div class="button" id="plusTag" onclick="createANewList();">+</div>';
+    html += '</div>';
+
     return html;
 }
 /**
@@ -108,12 +111,14 @@ function getHtmlForTaskList(listIndex){
  * @returns HTML code string that can be sent to the DOM
  */
 function getHtmlForTaskItem(listIndex, taskIndex){
-    console.log(listIndex, taskIndex);
     let item = proj.taskLists[listIndex].tasks[taskIndex];
+    if (item.complete){
+        return "";
+    }
     let checkIconPath = "./img/circleUnfilled.png";
     let html = "";
-    html += '<div class="panelTaskContainer">';
-        html += '<img src="' + checkIconPath + '" class="panelTaskCheckbox">';
+    html += '<div class="panelTaskContainer" id="taskPanelItem' + item.id + '">';
+        html += '<img src="' + checkIconPath + '" class="panelTaskCheckbox" id="taskCheck' + item.id + '" onclick="processTaskCompletion(' + item.id + ');">';
         html += '<div class="panelTaskItem">';
             html += item.name;
         html += '</div>';
