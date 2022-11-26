@@ -40,3 +40,9 @@ function updateTagLabel(tagId){
         }
     });
 }
+function createANewTag(){
+    let newTag = new Tag();
+    newTag.name = "";
+    proj.tags.push(newTag);
+    populatePanel(2);
+}

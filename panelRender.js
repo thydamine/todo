@@ -131,6 +131,9 @@ function getHtmlForTaskItem(listIndex, taskIndex){
         html += '<input type="text" class="panelTagsInput" id="tagLabel' + tag.id + '" value="' + tag.name + '" onchange="updateTagLabel(' + tag.id + ');"></div>';
         html += '</div>';
     });
+    html += '<div class="buttonContainer">';
+    html += '<div class="button" id="plusTag" onclick="createANewTag();">+</div>';
+    html += '</div>';
 
     return html;
 }
