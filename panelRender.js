@@ -120,8 +120,15 @@ function getHtmlForTaskItem(listIndex, taskIndex){
     html += '<div class="panelTaskContainer" id="taskPanelItem' + item.id + '">';
         html += '<img src="' + checkIconPath + '" class="panelTaskCheckbox" id="taskCheck' + item.id + '" onclick="processTaskCompletion(' + item.id + ');">';
         html += '<div class="panelTaskItem">';
-            html += item.name;
+        if (item.name){
+            html += item.nameShortened;
+        } else {
+            html += "- -";
+        }
         html += '</div>';
+        if (item.dueDate){
+            html += '<div class="taskPanelDate">' + item.dueDate.slice(-5) + '</div>';
+        }
     html += '</div>';
     return html;
 }

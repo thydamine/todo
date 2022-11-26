@@ -47,8 +47,8 @@ class TaskList {
         return this.tasks.length;
     }
     get nameShortened(){
-        if (this.name.length > 20){
-            return this.name.slice(0, 15) + "...";
+        if (this.name.length > 25){
+            return this.name.slice(0, 25) + "...";
         }
         return this.name;
     }
@@ -65,6 +65,7 @@ class Task {
         this.id = generateUniqueTaskId();
         this.complete = false;
         this.parentId = parentId;
+        this.dueDate = "";
     }
     complete = false;
     dueDate = 0; // Unix Timestamp
@@ -96,7 +97,7 @@ class Task {
     }
     get nameShortened(){
         if (this.name.length > 25){
-            return this.name.slice(0, 15) + "...";
+            return this.name.slice(0, 25) + "...";
         }
         return this.name;
     }
@@ -109,12 +110,27 @@ function createANewList(){
     proj.taskLists.push(newList);
     populatePanel(1);
 }
+function createANewTask(listId){
+    let newTask = new Task("");
+    proj.taskLists.forEach(list => {
+        if (list.id == listId){
+            list.tasks.push(newTask);
+        }
+    });
+    populatePanel(1);
+    populateTaskListBox(listId);
+}
 function processTaskCompletion(taskId){
     // Search every task list for a task that matches the id
     console.log("Processing task completion for task " + taskId);
     proj.taskLists.forEach(list => {
         list.tasks.forEach(task => {
             if (task.id == taskId){
+                if (task.complete == true){
+                    task.markIncomplete();
+                    populateTaskListBox(list.id);
+                    populatePanel(1);
+                }
                 console.log("Found task " + taskId);
                 document.getElementById("taskCheck" + taskId).src="./img/checkedRadio.png";
                 document.getElementById("taskCheckPop" + taskId).src="./img/checkedRadio.png";
@@ -176,6 +192,20 @@ function renameTask(taskId){
             if (task.id == taskId){
                 listId = list.id;
                 task.rename(newName);
+            }
+        });
+    });
+    populatePanel(1);
+    populateTaskListBox(listId);
+}
+function setTaskDueDate(taskId){
+    let listId;
+    let newDueDate = document.getElementById("taskDueDatePop" + taskId).value;
+    proj.taskLists.forEach(list => {
+        list.tasks.forEach(task => {
+            if (task.id == taskId){
+                listId = list.id;
+                task.setDueDate(newDueDate);
             }
         });
     });

@@ -101,12 +101,12 @@ function populateTaskListBox(listId){
                 }
             });
             html += '<div class="popoverTaskSpacer"></div>';
-            html += '    <div class="popoverBoxButton" onclick="setFocusToListNameField();">Rename</div>';
-            html += '    <div class="popoverBoxButton" onclick="togglePanelDelete();">Delete</div>';
-            html += '    <div class="buttonConfirmationContainer" id="popoverPanelDelete" style="display:none;">';
+            html += '    <div class="popoverBoxButton" onclick="createANewTask(' + listId + ');">Add a New Task</div>';
+            html += '    <div class="popoverBoxButton buttonDelete" onclick="toggleTaskPanelDelete();">Delete</div>';
+            html += '    <div class="buttonConfirmationContainer" id="popoverTaskPanelDelete" style="display:none;">';
             html += '        <div class="buttonConfirmation bcLabel">Are you sure?</div>';
             html += '        <div class="buttonConfirmation bcRed" onclick="deleteTaskList(' + listId + ');">Delete</div>';
-            html += '        <div class="buttonConfirmation bcGray" onclick="togglePanelDelete();">Cancel</div>';
+            html += '        <div class="buttonConfirmation bcGray" onclick="toggleTaskPanelDelete();">Cancel</div>';
             html += '    </div>';
         }
     });
@@ -128,7 +128,8 @@ function getHtmlForPopoverTaskItem(task){
     html += '<div class="popoverTaskContainer" id="taskPopoverItem' + task.id + '">';
     html += '<div class="popoverTaskTitle" style="opacity: ' + opacity + '">';
     html += '<img src="' + checkIconPath + '" class="panelTaskCheckbox" id="taskCheckPop' + task.id + '" onclick="' + functionName + '(' + task.id + ');"> ';
-    html += '<input class="popoverTaskTitleInput" type="text" value="' + task.name + '" id="taskNamePop' + task.id + '" onchange="renameTask(' + task.id + ');">';
+    html += '<input class="popoverTaskTitleInput" placeholder="New Task" type="text" value="' + task.name + '" id="taskNamePop' + task.id + '" onchange="renameTask(' + task.id + ');">';
+    html += '<input type="date" value="' + task.dueDate + '" class="popoverTaskDateAssign" id="taskDueDatePop' + task.id + '" onchange="setTaskDueDate(' + task.id + ')">';
     html += '</div>';
     html += '</div>';
     return html;
@@ -161,6 +162,9 @@ function toggleTagBox(blockId){
 }
 function togglePanelDelete(){
     $("#popoverPanelDelete").fadeToggle(200);
+}
+function toggleTaskPanelDelete(){
+    $("#popoverTaskPanelDelete").fadeToggle(200);
 }
 function toggleVersionRollback(versionId){
     $("#popoverVersionRollback" + versionId).slideToggle(200);

@@ -46,6 +46,18 @@ body {
 .panelDueTaskDate {
     float: right;
 }
+.taskPanelDate {
+    position: relative;
+    top: 7px;
+    float: right;
+    background-color: var(--gray);
+    color: #000000;
+    padding: 3px;
+    font-size: 13px;
+    font-weight: 800;
+    line-height: 1em;
+    border-radius: 3px;
+}
 .panelActivityText {
     color: var(--deEmphasizedSmallText);
     margin-bottom: 3px;
