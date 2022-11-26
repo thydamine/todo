@@ -133,3 +133,7 @@ function jumpToTagWindow(){
     closeShade();
     populatePanel(2);
 }
+function sendInvite(){
+    // inviteConfirmation
+    $( "#inviteConfirmation" ).fadeIn( 300 ).delay( 2000 ).fadeOut( 300 );
+}

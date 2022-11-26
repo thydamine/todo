@@ -178,3 +178,47 @@
 .popoverBoxTagGray {
     background-color: var(--veryLightBG);
 }
+
+.popoverInviteContainer {
+    width: 400px;
+    padding: 20px;
+    display: block;
+    position: relative;
+    top: calc(50% - 200px - 20px);
+    margin: auto;
+    background-color: var(--mainBG);
+}
+.popoverInviteInput {
+    padding: 10px;
+    font-size: 16px;
+    line-height: 1em;
+    border: 1px solid var(--veryLightBG);
+    background-color: var(--lightBG);
+    width: 70%;
+    margin-top: 10px;
+    color: #ffffff;
+}
+.popoverInviteSend {
+    padding: 10px;
+    font-size: 16px;
+    line-height: 1em;
+    border: 1px solid var(--veryLightBG);
+    background-color: var(--buttonBackground);
+    width: 20%;
+    margin-top: 10px;
+    color: #ffffff;
+    cursor: pointer;
+    margin-left: 5px;
+}
+.popoverInviteConfirmation {
+    display: inline-block;
+    padding: 10px;
+    font-size: 16px;
+    line-height: 1em;
+    border: 1px solid var(--veryLightBG);
+    background-color: var(--tagBackground);
+    margin-top: 10px;
+    color: #ffffff;
+    cursor: pointer;
+    border-radius: 8px;
+}

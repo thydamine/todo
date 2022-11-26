@@ -10,6 +10,16 @@ let projects = [];
 projects.push(new Project("3020 Group Project"));
 let proj = projects[currentProject];
 
+/* Create an array of test file names */
+let nameArray = [];
+nameArray.push("Project Proposal");
+nameArray.push("Project Report");
+nameArray.push("Project Presentation");
+nameArray.push("Project Video");
+nameArray.push("Project Code");
+nameArray.push("Project Poster");
+nameArray.push("Project Presentation");
+
 /* Add some canned people to the project */
 let latestId = 0;
 proj.addPerson(new Person("May Chen",        "#d2c68d"));
@@ -66,6 +76,12 @@ proj.addActivityFeedItem("DELETE", 5);
 proj.addActivityFeedItem("ASSIGN", 1);
 proj.addActivityFeedItem("EDIT", 2);
 proj.addActivityFeedItem("EDIT", 4);
+
+function createRandomBlock(){
+    let block = new Block(nameArray[Math.floor(Math.random() * nameArray.length)]);
+    proj.addBlock(block.name);
+    renderBlocks();
+}
 
 /* Send all that data out to the console so that we can investigate */
 console.log(projects);

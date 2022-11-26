@@ -53,12 +53,22 @@
             </div>
             <div id="blockZone" class="blockZone"></div>
             <div class="buttonContainer">
-                <div class="button" id="plusBlackboard">+</div>
+                <div class="plusStack" id="plusStack">
+                    <div class="plusStackItem" onclick="createRandomBlock();">+ New Block</div>
+                    <div class="plusStackItem" onclick="showInviteBox();">+ Group Member</div>
+                </div>
+                <div class="button" id="plusBlackboard" onclick="togglePlusStack();">+</div>
             </div>
         </div>
     </div>
     <div class="popoverShade" id="shade">
-        <div class="popoverBoxContainer" id="popoverBlock">
+        <div class="popoverBoxContainer" id="popoverBlock"></div>
+        <div class="popoverInviteContainer" id="popoverInvite" style="display:none;">
+            <div class="popoverBoxClose" onclick="closeShade();">&times;</div>
+            <div class="">Invite a New Group Member</div>
+            <input class="popoverInviteInput" id="inviteInput" type="text" placeholder="Email">
+            <button class="popoverInviteSend" id="inviteSend" onclick="sendInvite();">Send</button>
+            <div class="popoverInviteConfirmation" id="inviteConfirmation" style="display: none;">Invite Sent!</div>
         </div>
     </div>
 </body>

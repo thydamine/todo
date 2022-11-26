@@ -35,6 +35,16 @@ function renameActiveBlock(){
     block.name = document.getElementById("blockNameField").value;
     renderBlocks();
 }
+function togglePlusStack(){
+    $("#plusStack").slideToggle(200, "linear");
+}
+function showInviteBox(){
+    openShade();
+    $("#popoverInvite").fadeIn(200, "linear");
+}
+function closeInviteBox(){
+    $("#popoverInvite").hide();
+}
 
 renderBlocks();
 closePanelDelete();

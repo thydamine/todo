@@ -1,6 +1,14 @@
 function closeShade(){
     let shade = document.getElementById("shade");
     shade.style.display = "none";
+
+    // Hide the popover box
+    let popover = document.getElementById("popoverBlock");
+    popover.style.display = "none";
+
+    // Hide the invite box
+    let invite = document.getElementById("popoverInvite");
+    popover.style.display = "none";
 }
 function openShade(){
     $("#shade").fadeIn(200);
@@ -42,6 +50,8 @@ function populatePopover(blockId){
     document.getElementById("popoverBlock").innerHTML = html;
 
     openShade();
+    closeInviteBox();
+    document.getElementById("popoverBlock").style.display = "block";
     populateVersionBox();
     populateTagBox(blockId);
 }
