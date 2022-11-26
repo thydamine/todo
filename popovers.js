@@ -85,10 +85,34 @@ function populateTaskListBox(listId){
     // Search every list to find one with a matching id
     proj.taskLists.forEach(list => {
         if (list.id == listId){
+            activeTaskList = list.id;
+            let checkIconPath;
             html += '<div class="popoverBoxClose" onclick="hideTaskBox();">&times;</div>';
-            html += '<div class="popoverBoxContent">';
-            html += '    <input type="text" value="' + list.name + '" class="popoverBoxHeading" id="listNameField" onchange="renameActiveList()">';
+            html += '    <input type="text" value="' + list.name + '" class="popoverBoxHeading" id="listNameField" onchange="renameActiveList();">';
             html += '    <div class="popoverBoxSubheading">Created by <i>Test User</i></div>';
+            list.tasks.forEach(task => {
+                if (!task.complete){
+                    checkIconPath = "./img/circleUnfilled.png";
+                    html += '<div class="popoverTaskContainer" id="taskPopoverItem' + task.id + '">';
+                    html += '<div class="popoverTaskTitle">';
+                    html += '<img src="' + checkIconPath + '" class="panelTaskCheckbox" id="taskCheckPop' + task.id + '" onclick="processTaskCompletion(' + task.id + ');"> ';
+                    html += task.name;
+                    html += '</div>';
+                    html += '</div>';
+                }
+            });
+            list.tasks.forEach(task => {
+                if (task.complete){
+                    checkIconPath = "./img/checkedRadio.png";
+                    html += '<div class="popoverTaskContainer" id="taskPopoverItem' + task.id + '">';
+                    html += '<div class="popoverTaskTitle taskFaded">';
+                    html += '<img src="' + checkIconPath + '" class="panelTaskCheckbox" id="taskCheckPop' + task.id + '" onclick="processTaskCompletion(' + task.id + ');"> ';
+                    html += task.name;
+                    html += '</div>';
+                    html += '</div>';
+                }
+            });
+            html += '<div class="popoverTaskSpacer"></div>';
             html += '    <div class="popoverBoxButton" onclick="setFocusToListNameField();">Rename</div>';
             html += '    <div class="popoverBoxButton" onclick="togglePanelDelete();">Delete</div>';
             html += '    <div class="buttonConfirmationContainer" id="popoverPanelDelete" style="display:none;">';
@@ -96,7 +120,6 @@ function populateTaskListBox(listId){
             html += '        <div class="buttonConfirmation bcRed" onclick="deleteTaskList(' + listId + ');">Delete</div>';
             html += '        <div class="buttonConfirmation bcGray" onclick="togglePanelDelete();">Cancel</div>';
             html += '    </div>';
-            html += '</div>';
         }
     });
     document.getElementById("popoverTaskList").innerHTML = html;

@@ -114,9 +114,20 @@ function processTaskCompletion(taskId){
             if (task.id == taskId){
                 console.log("Found task " + taskId);
                 document.getElementById("taskCheck" + taskId).src="./img/checkedRadio.png";
+                document.getElementById("taskCheckPop" + taskId).src="./img/checkedRadio.png";
+                task.markComplete();
                 $( "#taskPanelItem" + taskId ).delay( 2000 ).fadeOut( 300 , function() {
-                    task.markComplete();    
-                    //populatePanel(1);
+                    //populatePanel(1); // May not be necessary?
+                });
+                $( "#taskPopoverItem" + taskId ).delay( 2000 ).fadeOut( 300 , function() {
+                    // Rerender the popover
+                    proj.taskLists.forEach(list => {
+                        list.tasks.forEach(task => {
+                            if (task.id == taskId){
+                                populateTaskListBox(list.id);
+                            }
+                        });
+                    });
                 });
             }
         });

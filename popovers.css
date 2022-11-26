@@ -222,3 +222,33 @@
     cursor: pointer;
     border-radius: 8px;
 }
+
+.popoverBoxTaskContainer {
+    display: block;
+    position: relative;
+    margin: auto;
+    margin-top: calc(50vh - 300px);
+    background-color: var(--mainBG);
+    padding: 20px;
+    width: 400px;
+}
+.popoverTaskContainer {
+    padding: 10px;
+    margin-bottom: 3px;
+    border-radius: 8px;
+    background-color: var(--lightBG);
+}
+.popoverTaskTitle {
+    font-weight: 500;
+    font-size: 16px;
+    cursor: pointer;
+}
+.taskFaded {
+    opacity: 0.5;
+}
+.popoverTaskSpacer {
+    height: 30px;
+}
+.popoverTaskCheckbox {
+    height: 16px;
+}
