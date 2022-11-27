@@ -14,6 +14,10 @@ function closeShade(){
     // Hide the task box
     let task = document.getElementById("popoverTaskList");
     task.style.display = "none";
+
+    // Hide the new file box
+    let newFile = document.getElementById("popoverFile");
+    newFile.style.display = "none";
 }
 function openShade(){
     $("#shade").fadeIn(200);

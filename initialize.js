@@ -85,6 +85,15 @@ function createRandomBlock(){
     proj.addBlock(block.name);
     renderBlocks();
 }
+function createBlock(){
+    let string = document.getElementById("fileInput").value;
+    let stringFormatted = string.split("\\");
+    console.log(string);
+    console.log(stringFormatted);
+    let block = new Block(stringFormatted.pop());
+    proj.addBlock(block.name);
+    renderBlocks();
+}
 
 /* Send all that data out to the console so that we can investigate */
 console.log(projects);

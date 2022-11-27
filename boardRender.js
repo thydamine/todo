@@ -45,6 +45,13 @@ function showInviteBox(){
 function closeInviteBox(){
     closeShade();
 }
+function showFileBox(){
+    openShade();
+    $("#popoverFile").fadeIn(200, "linear");
+}
+function closeFileBox(){
+    closeShade();
+}
 function showTaskBox(listId){
     console.log("Showing task box for id " + listId);
     openShade();
