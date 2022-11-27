@@ -4,7 +4,7 @@
 class TaskList {
     constructor(name = "New List"){
         this.name = name;
-        this.id = proj.taskLists.length;
+        this.id = generateUniqueListId();
     }
 
     tasks = [];
@@ -184,6 +184,20 @@ function generateUniqueTaskId(){
         return generateUniqueTaskId();    
     }
 }
+function generateUniqueListId(){
+    let id = Math.floor(Math.random() * 1000000);
+    let idIsUnique = true;
+    proj.taskLists.forEach(list => {
+        if (list.id == id){
+            idIsUnique = false;
+        }
+    });
+    if (idIsUnique){
+        return id;
+    } else {
+        return generateUniqueListId();
+    }
+}
 function renameTask(taskId){
     let listId;
     let newName = document.getElementById("taskNamePop" + taskId).value;
@@ -211,4 +225,15 @@ function setTaskDueDate(taskId){
     });
     populatePanel(1);
     populateTaskListBox(listId);
+}
+function deleteTaskList(taskListId){
+    proj.taskLists.forEach(list => {
+        if (list.id == taskListId){
+            let index = proj.taskLists.indexOf(list);
+            proj.taskLists.splice(index, 1);
+        }
+    });
+
+    populatePanel(1);
+    closeShade();
 }

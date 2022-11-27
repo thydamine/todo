@@ -10,7 +10,6 @@ function panelToggle(){
     if (panelState === 1){
         document.getElementById("chevron").src = "./img/chevronRight.png";
         panelPos = panelClosedPos;
-
     } else {
         document.getElementById("chevron").src = "./img/chevronLeft.png";
         panelPos = 0;
@@ -76,6 +75,7 @@ function panelBounceOut(intensity, panelid = "panel", anchor = "left"){
 function panelOpen(){
     panelMove(0);
     panelState = 1;
+    document.getElementById("chevron").src = "./img/chevronLeft.png";
 }
 /**
  * Opens and closes the notification panel

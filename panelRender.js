@@ -76,6 +76,11 @@ function getHtmlForTasks(){
         html += getHtmlForTaskList(i);
         html += '</div>';
     }
+    if (projects[currentProject].numberOfTaskLists === 0){
+        html += '<div class="buttonContainer">';
+        html += '<div class="button" id="plusTag" onclick="createANewList();">+</div>';
+        html += '</div>';
+    }
 
     return html;
 }
