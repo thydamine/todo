@@ -133,7 +133,9 @@ function processTaskCompletion(taskId){
                 }
                 console.log("Found task " + taskId);
                 document.getElementById("taskCheck" + taskId).src="./img/checkedRadio.png";
-                document.getElementById("taskCheckPop" + taskId).src="./img/checkedRadio.png";
+                if (document.getElementById("taskCheckPop" + taskId)){
+                    document.getElementById("taskCheckPop" + taskId).src="./img/checkedRadio.png";
+                }
                 task.markComplete();
                 $( "#taskPanelItem" + taskId ).delay( 2000 ).fadeOut( 300 , function() {
                     //populatePanel(1); // May not be necessary?

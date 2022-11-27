@@ -46,7 +46,7 @@ proj.addMessage(4, "Consectetur adipiscing elit, sed do eiusmod tempor incididun
 
 /* Create a few lists that we can use in examples */
 proj.addTaskList("Write App");
-proj.addTaskList("Milestone 3 Summary");
+proj.addTaskList("Grade Milestone 3");
 
 /* Add some blocks to the Blackboard */
 proj.addBlock("Summary");
@@ -63,7 +63,8 @@ proj.taskLists[0].newTask("Set up GitHub repo");
 proj.taskLists[0].newTask("Finish panels");
 proj.taskLists[0].newTask("Add file sharing area");
 
-proj.taskLists[1].newTask("First draft of overall summary");
+proj.taskLists[1].newTask("Be nice to Group 18");
+proj.taskLists[1].newTask("They tried really hard");
 
 /* Populate a few tags */
 
