@@ -10,9 +10,11 @@ function panelToggle(){
     if (panelState === 1){
         document.getElementById("chevron").src = "./img/chevronRight.png";
         panelPos = panelClosedPos;
+        renderPanelShade(false);
     } else {
         document.getElementById("chevron").src = "./img/chevronLeft.png";
         panelPos = 0;
+        renderPanelShade(true);
     }
     
     panelMove(panelPos);
@@ -76,6 +78,7 @@ function panelOpen(){
     panelMove(0);
     panelState = 1;
     document.getElementById("chevron").src = "./img/chevronLeft.png";
+    renderPanelShade(true);
 }
 /**
  * Opens and closes the notification panel
@@ -91,4 +94,23 @@ function toggleNotificationPane(){
     panelMove(panelPos, "notificationPanel");
 
     notifState *= -1;
+}
+function renderPanelShade(boolean){
+    if (boolean){
+        document.getElementById("panelShade").style = "display: block";
+    } else {
+        document.getElementById("panelShade").style = "display: none";
+    }
+}
+function iconToClosePanel(clickedIcon){
+    console.log("######");
+    console.log("Clicked icon: " + clickedIcon);
+    console.log("Panel state: " + panelState);
+    console.log("Current Panel State: " + currentPanelState);
+
+    if (clickedIcon === currentPanelState && panelState == 1){
+        panelToggle();
+    } else {
+        populatePanel(clickedIcon);
+    }
 }

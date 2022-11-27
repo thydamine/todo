@@ -30,6 +30,14 @@ body {
     background-color: var(--darkerBG);
     z-index: 10;
 }
+.panelShadeInvisible {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 9;
+}
 .panel_notification {
     right: calc(var(--panelWidth) * -1 - var(--panelPadding) * 2);
 }

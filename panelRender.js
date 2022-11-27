@@ -13,15 +13,18 @@ function populatePanel(panelIndex){
     if (panelIndex === 0){
         // Discussion
         document.getElementById("panelContentParent").innerHTML = getHtmlForDiscussion();
+        currentPanelState = 0;
         renderChatMessages();
     }
     if (panelIndex === 1){
         // Tasks
         document.getElementById("panelContentParent").innerHTML = getHtmlForTasks();
+        currentPanelState = 1;
     }
     if (panelIndex === 2){
         // Tags
         document.getElementById("panelContentParent").innerHTML = getHtmlForTags();
+        currentPanelState = 2;
     }
 
     // Change the content of the panel to reflect the chosen state
