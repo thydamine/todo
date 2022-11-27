@@ -1,0 +1,15 @@
+.helperBlackboard {
+    background-color: var(--lightBG);
+    display: block;
+    margin: auto;
+    padding: 20px;
+    font-size: 18px;
+    font-weight: 300;
+    border-radius: 10px;
+    width: 400px;
+    margin-top: 150px;
+    line-height: 1.5em;
+}
+.autofit {
+    width: auto;
+}

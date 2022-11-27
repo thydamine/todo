@@ -33,6 +33,10 @@ proj.addPerson(new Person("Brendan Schacht", "#c2c7cb"));
 proj.addPerson(new Person("Dhvani Thakkar",  "#4aafa5"));
 proj.addPerson(new Person("Test User",       "#ff2f6c"));
 
+// Add somebody to empty
+projects[1].addPerson(new Person("Test User",       "#ff2f6c"));
+
+
 /* Add some messages from those people */
 proj.addMessage(0, "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.");
 proj.addMessage(5, "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.");
@@ -106,4 +110,5 @@ function changeProjects(projectIndex){
     renderBlocks();
     renderProjectName();
     toggleProjectList();
+    renderGroupCount();
 }

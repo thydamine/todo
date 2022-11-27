@@ -17,17 +17,27 @@ function getHtmlForBlock(blockId){
 
 function renderBlocks(){
     let html = "";
+    let isBlocks = false;
     let i = 0;
     // create a reverse order version of the blocks array
     let blocks = proj.blocks.slice(0);
     blocks.reverse();
     blocks.forEach(element => {
+        isBlocks = true;
         if (element.isNewestVersion){
             html += getHtmlForBlock(element.id);
         }
     });
     html += "</div>";
     document.getElementById("blockZone").innerHTML = html;
+
+    if (!isBlocks){
+        let helperString = `<b>Welcome to Blackboard!</b><br>
+        Blackboard is a tool for organizing your ideas and projects in small groups. Start by adding a file block to your group's board using the "+" button below.
+        <br><br>
+        To see a populated project, select a different project using the selector above.`;
+        document.getElementById("blockZone").innerHTML = '<div class="helperBlackboard">' + helperString + '</div>';
+    }
 }
 
 function renameActiveBlock(){
@@ -85,3 +95,6 @@ closeTagBox();
 closeShade();
 renderGroupCount();
 renderProjectName();
+
+changeProjects(1); // Start at the empty one
+changeProjects(1); // Kludge, this is to fix a bug where the first project doesn't load properly

@@ -15,6 +15,11 @@ function populatePanel(panelIndex){
         document.getElementById("panelContentParent").innerHTML = getHtmlForDiscussion();
         currentPanelState = 0;
         renderChatMessages();
+        if (proj.chatMessages.length === 0){
+            let helperString = `<div class="helperBlackboard autofit">Your group doesn't have any other members yet. Add a group member using the "New Member" button above.</div>
+            `;
+            document.getElementById("panelContentParent").innerHTML = helperString;
+        }
     }
     if (panelIndex === 1){
         // Tasks
@@ -79,6 +84,14 @@ function getHtmlForTasks(){
         html += getHtmlForTaskList(i);
         html += '</div>';
     }
+    if (proj.taskLists.length === 0){
+        let helperString = `<div class="helperBlackboard autofit">You don't have any task lists yet. Add a list using the "+" icon below.</div>
+        `;
+        html += helperString;
+    } else {
+        console.log("List length: " + proj.taskLists.length);
+    }
+
     if (projects[currentProject].numberOfTaskLists === 0){
         html += '<div class="buttonContainer">';
         html += '<div class="button" id="plusTag" onclick="createANewList();">+</div>';
@@ -151,6 +164,11 @@ function getHtmlForTaskItem(listIndex, taskIndex){
         html += '<input type="text" class="panelTagsInput" id="tagLabel' + tag.id + '" value="' + tag.name + '" onchange="updateTagLabel(' + tag.id + ');"></div>';
         html += '</div>';
     });
+    if (projects[currentProject].tags.length === 0){
+        let helperString = `<div class="helperBlackboard autofit">You don't have any tags yet. Add a tag using the "+" icon below.</div>
+        `;
+        html += helperString;
+    }
     html += '<div class="buttonContainer">';
     html += '<div class="button" id="plusTag" onclick="createANewTag();">+</div>';
     html += '</div>';
