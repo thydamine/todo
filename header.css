@@ -13,10 +13,25 @@
     max-height: var(--headerHeight);
     min-height: var(--headerHeight);
     overflow: hidden;
+    text-align: center;
 }
 .projectHeaderText {
     display: inline-block;
-    width: 300px;
+    width: auto;
+    line-height: 1em;
+}
+.projectGroupText {
+    display: inline-block;
+    width: auto;
+    font-size: 14px;
+    line-height: 1em;
+    padding: 5px;
+    border-radius: 5px;
+    background: var(--selectorBackground);
+    margin-left: 10px;
+    position: relative;
+    cursor: pointer;
+    border: 1px solid var(--grayedOut);
 }
 .projectHeaderButtons {
     display: inline-block;

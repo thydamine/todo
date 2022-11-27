@@ -62,8 +62,14 @@ function hideTaskBox(){
     $("#popoverTaskList").hide();
     closeShade();
 }
+function renderGroupCount(){
+    let count = proj.people.length;
+    let string = "+ New Member (" + count + ")";
+    document.getElementById("groupCount").innerHTML = string;
+}
 
 renderBlocks();
 closePanelDelete();
 closeTagBox();
 closeShade();
+renderGroupCount();
