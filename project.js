@@ -13,6 +13,7 @@ class Project {
     tags = [];
     blocks = [];
     activityFeed = [];
+    notificationsDismissed = false;
 
     addPerson(person){
         this.people.push(person);

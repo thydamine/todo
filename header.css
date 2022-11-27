@@ -56,3 +56,13 @@
     margin-top: 5px;
     background-color: var(--selectorBackground);
 }
+.notificationCircle {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    border-radius: 8px;
+    background-color: var(--orangered);
+    right: -2px;
+    bottom: 20px;
+    border: 2px solid var(--lightBG);
+}

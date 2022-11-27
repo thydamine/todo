@@ -114,4 +114,9 @@ function changeProjects(projectIndex){
     toggleProjectList();
     renderGroupCount();
     renderActivityFeed();
+    if (!proj.notificationsDismissed){
+        document.getElementById("notificationCircle").style = "display: block;";
+    } else {
+        document.getElementById("notificationCircle").style = "display: none";
+    }
 }

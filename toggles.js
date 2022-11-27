@@ -85,6 +85,10 @@ function panelOpen(){
  */
 function toggleNotificationPane(){
     let panelPos = 0;
+    if (!proj.notificationsDismissed){
+        document.getElementById("notificationCircle").style = "display: none";
+        proj.notificationsDismissed = true;
+    }
     if (notifState === 1){
         // It's open, close it
         panelPos = panelClosedPos;

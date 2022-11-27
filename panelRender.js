@@ -230,6 +230,11 @@ function renderActivityFeed(){
 function renderProjectName(){
     document.getElementById("projectName").innerHTML = projects[currentProject].name;
 }
+function renderNotificationBell(){
+    let html = "";
+    
+    document.getElementById("notificationBell").innerHTML = html;
+}
 // Do an initial render of the panel
 populatePanel(currentPanelState);
 if (!panelOpenDefault){
