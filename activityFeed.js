@@ -23,20 +23,20 @@ class ActivityFeedItem {
     }
     get description(){
         let desc = "";
-        let nameOfPerson = proj.people[this.personChanged].name;
+        let nameOfPerson = this.personChanged;
         let nameOfPersonHtml = "<b>" + nameOfPerson + "</b>";
         switch(this.changeType){
             case "EDIT":
-                desc = nameOfPersonHtml + " edited " + this.itemChanged;
+                desc = nameOfPersonHtml + " edited " + this.itemChanged.name;
                 break;
             case "ADD":
-                desc = nameOfPersonHtml + " added " + this.itemChanged;
+                desc = nameOfPersonHtml + " added " + this.itemChanged.name;
                 break;
             case "DELETE":
-                desc = nameOfPersonHtml + " deleted " + this.itemChanged;
+                desc = nameOfPersonHtml + " deleted " + this.itemChanged.name;
                 break;
             case "ASSIGN": 
-                desc = nameOfPersonHtml + " was assigned to " + this.itemChanged;
+                desc = nameOfPersonHtml + " was assigned to " + this.itemChanged.name;
                 break;
         }
         return desc;

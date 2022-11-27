@@ -193,7 +193,7 @@ function getHtmlForDueTasks(){
         }
 
         let ONE_DAY_IN_MS = 86400000;
-        if (task.dueDate < Date.now() - ONE_DAY_IN_MS){
+        if (task.dueDate && new Date(task.dueDate) < Date.now() - ONE_DAY_IN_MS){
             html += '<div class="panelDueTaskContainer">';
                 html += '<div class="panelDueTaskTitle">' + taskName;
                 html += '<div class="panelDueTaskDate">' + task.dueDateString + '</div>';
@@ -209,6 +209,7 @@ function getHtmlForActivityFeed(){
     html += '<div class="panelNotificationSubheading" style="margin-top:' + topMargin + 'px">Activity Feed</div>';
     let activity = projects[currentProject].activityFeed;
     for (let i = 0; i < activity.length; i++){
+        console.log(activity[i]);
         let item = activity[i];
         html += '<div class="panelActivityItem">';
         html += '<div class="panelActivityIcon"></div>';

@@ -93,6 +93,7 @@ function toggleNotificationPane(){
         // It's closed, open it
         panelPos = 0;
         renderNotifShade(true);
+        renderActivityFeed();
     }
     
     panelMove(panelPos, "notificationPanel");

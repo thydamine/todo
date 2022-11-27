@@ -5,6 +5,7 @@ class TaskList {
     constructor(name = "New List"){
         this.name = name;
         this.id = generateUniqueListId();
+        proj.addActivityFeedItem("ADD", "Test User", this);
     }
 
     tasks = [];
@@ -12,7 +13,9 @@ class TaskList {
 
     newTask(name){
         this.taskCount++;
-        this.tasks.push(new Task(name));
+        let newTask = new Task(name, this);
+        this.tasks.push(newTask);
+        //proj.addActivityFeedItem("ADD", "Test User", newTask);
     }
     getNumberOfTasks(){
         return this.tasks.length;
@@ -78,9 +81,7 @@ class Task {
         this.dueDate = dueDateTimestamp;
     }
     get dueDateString(){
-        let date = new Date(this.dueDate);
-        // cut the last 5 characters from a string
-        return date.toLocaleDateString().slice(0, -5);
+        return this.dueDate.slice(-5);
     }
     markComplete(){
         this.complete = true;
@@ -104,8 +105,8 @@ class Task {
 }
 
 function createANewList(){
-    let newList = new TaskList();
-    newList.name = "New List";
+    let newList = new TaskList("New List");
+
     newList.newTask("New Task");
     proj.taskLists.push(newList);
     populatePanel(1);

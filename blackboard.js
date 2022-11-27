@@ -8,6 +8,8 @@ class Block {
         this.newerVersion = null;
         this.olderVersion = olderVersion;
         this.versionNumber = this.versionCount;
+
+        proj.addActivityFeedItem("ADD", "Test User", this);
     }
     deleteBlock(){
         // Delete this block and every older version
