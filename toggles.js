@@ -86,9 +86,13 @@ function panelOpen(){
 function toggleNotificationPane(){
     let panelPos = 0;
     if (notifState === 1){
+        // It's open, close it
         panelPos = panelClosedPos;
+        renderNotifShade(false);
     } else {
+        // It's closed, open it
         panelPos = 0;
+        renderNotifShade(true);
     }
     
     panelMove(panelPos, "notificationPanel");
@@ -100,6 +104,13 @@ function renderPanelShade(boolean){
         document.getElementById("panelShade").style = "display: block";
     } else {
         document.getElementById("panelShade").style = "display: none";
+    }
+}
+function renderNotifShade(boolean){
+    if (boolean){
+        document.getElementById("notificationShade").style = "display: block";
+    } else {
+        document.getElementById("notificationShade").style = "display: none";
     }
 }
 function iconToClosePanel(clickedIcon){

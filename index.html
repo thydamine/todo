@@ -51,11 +51,12 @@
                     Content
                 </span>
             </div>
+            <div class="panelShadeInvisible" id="notificationShade" onclick="toggleNotificationPane();"></div>
             <div class="panel panel_notification" id="notificationPanel">
                 <div class="panelNotificationSubheading">Tasks Due</div>
                 <div class="panelNotificationSubheading">Activity</div>
             </div>
-            <div id="blockZone" class="blockZone" ondrop="ev.preventDefault();createRandomBlock();"></div>
+            <div id="blockZone" class="blockZone"></div>
             <div class="buttonContainer">
                 <div class="plusStack" id="plusStack" style="display: none;">
                     <div class="plusStackItem" onclick="showFileBox();togglePlusStack();">+ New Block</div>

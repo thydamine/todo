@@ -217,3 +217,4 @@ if (!panelOpenDefault){
 
 // Do an initial render of the activity feed
 renderActivityFeed();
+renderNotifShade(false);
