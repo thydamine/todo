@@ -67,9 +67,21 @@ function renderGroupCount(){
     let string = "+ New Member (" + count + ")";
     document.getElementById("groupCount").innerHTML = string;
 }
+function toggleProjectList(){
+    renderProjectList();
+    $("#projList").fadeToggle(100, "linear");
+}
+function renderProjectList(){
+    let html = "";
+    projects.forEach(element => {
+        html += '<div class="projItem" onclick="changeProjects(' + element.id + ')">' + element.name + '</div>';
+    });
+    document.getElementById("projList").innerHTML = html;
+}
 
 renderBlocks();
 closePanelDelete();
 closeTagBox();
 closeShade();
 renderGroupCount();
+renderProjectName();

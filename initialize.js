@@ -10,7 +10,8 @@ let activeTaskList = 0;
 
 /* Create a new list of projects, add a sample project to it */
 let projects = [];
-projects.push(new Project("3020 Group Project"));
+projects.push(new Project("3020 Project"));
+projects.push(new Project("Empty Project"));
 let proj = projects[currentProject];
 
 /* Create an array of test file names */
@@ -98,3 +99,11 @@ function createBlock(){
 
 /* Send all that data out to the console so that we can investigate */
 console.log(projects);
+
+function changeProjects(projectIndex){
+    currentProject = projectIndex;
+    proj = projects[currentProject];
+    renderBlocks();
+    renderProjectName();
+    toggleProjectList();
+}

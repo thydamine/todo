@@ -30,11 +30,15 @@
     <div class="mainContainer">
         <div class="projectHeader">
             <div class="projectHeaderText">
-                3020 Project
+                <span id="projectName" style="cursor: pointer;" onclick="toggleProjectList();"></span>&nbsp;<div style="font-size: 13px;opacity: 0.8;top:-10px;display: inline-block;cursor: pointer;" onclick="toggleProjectList();">&#9660;</div>
                 <div class="projectGroupText" onclick="showInviteBox();"><span id="groupCount"></span></div>
             </div>
             <div class="projectHeaderButtons">
                 <img class="notificationBell" id="notificationToggle" onclick="toggleNotificationPane()" src="img/notification.png">
+            </div>
+            <div class="projList" style="display: none;" id="projList">
+                <div class="projItem">Content 1</div>
+                <div class="projItem">Content 2</div>
             </div>
         </div>
         <div class="blackboardParent">

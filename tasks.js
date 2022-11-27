@@ -214,6 +214,16 @@ function renameTask(taskId){
     populatePanel(1);
     populateTaskListBox(listId);
 }
+function renameActiveList(){
+    let newName = document.getElementById("listNameField").value;
+    proj.taskLists.forEach(list => {
+        if (list.id == activeTaskList){
+            list.rename(newName);
+        }
+    });
+    populatePanel(1);
+    populateTaskListBox(activeTaskList);
+}
 function setTaskDueDate(taskId){
     let listId;
     let newDueDate = document.getElementById("taskDueDatePop" + taskId).value;
