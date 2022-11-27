@@ -74,14 +74,19 @@ body {
     /* Input for adding tags */
     width: 100px;
     border: none;
-    border-radius: 5px;
     padding: 0px;
-    padding-left: 5px;
+    margin-left: 5px;
+    padding-bottom:2px;
     background-color: var(--tagBackground);
     color: var(--smallText);
     font-size: 18px;
     font-weight: 300;
+    border-bottom: 3px dashed rgba(255,255,255,0.5);
 }
+.panelTagsInput::placeholder {
+    color: #fff;
+    opacity: 0.3; /* Firefox */
+  }
 .iconTabContainer {
     position: absolute;
     right: calc((var(--panelIcon)) * -1);
