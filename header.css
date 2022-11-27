@@ -31,7 +31,8 @@
     margin-left: 10px;
     position: relative;
     cursor: pointer;
-    border: 1px solid var(--grayedOut);
+    top: -1px;
+    /* border: 1px solid var(--grayedOut); */
 }
 .projectHeaderButtons {
     display: inline-block;
