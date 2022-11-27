@@ -8,8 +8,11 @@ const panelClosedPos = -360;
 function panelToggle(){
     let panelPos = 0;
     if (panelState === 1){
+        document.getElementById("chevron").src = "./img/chevronRight.png";
         panelPos = panelClosedPos;
+
     } else {
+        document.getElementById("chevron").src = "./img/chevronLeft.png";
         panelPos = 0;
     }
     

@@ -119,7 +119,7 @@ function getHtmlForTaskItem(listIndex, taskIndex){
     let html = "";
     html += '<div class="panelTaskContainer" id="taskPanelItem' + item.id + '">';
         html += '<img src="' + checkIconPath + '" class="panelTaskCheckbox" id="taskCheck' + item.id + '" onclick="processTaskCompletion(' + item.id + ');">';
-        html += '<div class="panelTaskItem">';
+        html += '<div class="panelTaskItem" onclick="showTaskBox(' + proj.taskLists[listIndex].id + ')">';
         if (item.name){
             html += item.nameShortened;
         } else {
