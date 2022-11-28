@@ -16,8 +16,9 @@
 }
 .projectHeaderText {
     display: inline-block;
-    width: auto;
+    width: 400px;
     line-height: 1em;
+    margin-left: 300px;
 }
 .projectGroupText {
     display: inline-block;
@@ -37,9 +38,11 @@
     display: inline-block;
     position: relative;
     float: right;
+    text-align: right;
+    width: 300px;
 }
 .projList {
-    position: relative;
+    position: fixed;
     display: block;
     margin: auto;
     width: 300px;
@@ -57,12 +60,28 @@
     background-color: var(--selectorBackground);
 }
 .notificationCircle {
-    position: absolute;
+    position: relative;
+    display: inline-block;
     width: 8px;
     height: 8px;
     border-radius: 8px;
     background-color: var(--orangered);
-    right: -2px;
+    right: -15px;
     bottom: 20px;
     border: 2px solid var(--lightBG);
+}
+.notificationBellContainer {
+    position: inline-block;
+    float: right;
+}
+.searchContainer {
+    position: relative;
+    display: inline-block;
+    font-size: 14px;
+    line-height: 1em;
+    padding: 7px;
+    background: var(--selectorBackground);
+    border-radius: 5px;
+    margin-right: 15px;
+    cursor: pointer;
 }

@@ -15,27 +15,43 @@ function getHtmlForBlock(blockId){
     return html;
 }
 
-function renderBlocks(){
+function renderBlocks(tagName = null){
     let html = "";
     let isBlocks = false;
     let i = 0;
     // create a reverse order version of the blocks array
     let blocks = proj.blocks.slice(0);
+
+    if (tagName != null){
+        document.getElementById("tagSearchClickable").innerHTML = "Showing only <b>" + tagName + "</b>";
+    } else {
+        document.getElementById("tagSearchClickable").innerHTML = "Filter by Tag";
+    }
+
     blocks.reverse();
     blocks.forEach(element => {
-        isBlocks = true;
-        if (element.isNewestVersion){
-            html += getHtmlForBlock(element.id);
+        let tagNames = [];
+        element.tags.forEach(tag => {
+            tagNames.push(tag.name);
+        });
+        if (tagName == null || tagNames.includes(tagName)){
+            isBlocks = true;
+            if (element.isNewestVersion){
+                html += getHtmlForBlock(element.id);
+            }
         }
     });
     html += "</div>";
     document.getElementById("blockZone").innerHTML = html;
 
-    if (!isBlocks){
+    if (!isBlocks && tagName == null){
         let helperString = `<b>Welcome to Blackboard!</b><br>
         Blackboard is a tool for organizing your ideas and projects in small groups. Start by adding a file block to your group's board using the "+" button below.
         <br><br>
         To see a populated project, select a different project using the selector above.`;
+        document.getElementById("blockZone").innerHTML = '<div class="helperBlackboard">' + helperString + '</div>';
+    } else if (!isBlocks){
+        let helperString = "No blocks found with the <b>" + tagName + "</b> tag. You can create one using the '+' button below.<br>";
         document.getElementById("blockZone").innerHTML = '<div class="helperBlackboard">' + helperString + '</div>';
     }
 }
@@ -88,6 +104,21 @@ function renderProjectList(){
     });
     document.getElementById("projList").innerHTML = html;
 }
+function tagSort(tagName){
+    renderBlocks(tagName);
+    toggleTagList();
+}
+function renderTagList(){
+    let html = "";
+    html += '<div class="projItem" onclick="tagSort()">&times; <b>Clear Search</b></div>';
+    proj.tags.forEach(element => {
+        html += '<div class="projItem" onclick="tagSort(\'' + element.name + '\')">' + element.name + '</div>';
+    });
+    document.getElementById("headerTagList").innerHTML = html;
+}
+function toggleTagList(){
+    $("#headerTagList").fadeToggle(100, "linear");
+}
 
 renderBlocks();
 closePanelDelete();
@@ -95,6 +126,7 @@ closeTagBox();
 closeShade();
 renderGroupCount();
 renderProjectName();
+renderTagList();
 
 changeProjects(1); // Start at the empty one
 changeProjects(1); // Kludge, this is to fix a bug where the first project doesn't load properly

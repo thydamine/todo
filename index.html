@@ -35,10 +35,17 @@
                 <div class="projectGroupText" onclick="showInviteBox();"><span id="groupCount"></span></div>
             </div>
             <div class="projectHeaderButtons">
-                <img class="notificationBell" id="notificationToggle" onclick="toggleNotificationPane()" src="img/notification.png">
-                <div class="notificationCircle" id="notificationCircle"></div>
+                <div class="searchContainer" onclick="toggleTagList();" id="tagSearchClickable">Filter by Tag</div>
+                <div class="notificationBellContainer">
+                    <img class="notificationBell" id="notificationToggle" onclick="toggleNotificationPane()" src="img/notification.png">
+                    <div class="notificationCircle" id="notificationCircle"></div>
+                </div>
+                <div class="projList" style="width: 120px;right:0px;text-align: right;display: none;" id="headerTagList">
+                    <div class="projItem">Content 1</div>
+                    <div class="projItem">Content 2</div>
+                </div>    
             </div>
-            <div class="projList" style="display: none;" id="projList">
+            <div class="projList" style="display: none;left:calc(50vw - 160px);" id="projList">
                 <div class="projItem">Content 1</div>
                 <div class="projItem">Content 2</div>
             </div>
