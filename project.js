@@ -2,7 +2,7 @@
  * Project is a container for the entire group data package (chat, tasks, and files)
  */
 class Project {
-    constructor(name){
+    constructor(name = "New Project"){
         this.name = name;
         this.id = projects.length;
     }
@@ -55,6 +55,13 @@ class Project {
         });
         return tasks;
     }
+}
+
+function createProject(){
+    let newProject = new Project();
+    projects.push(newProject);
+    changeProjects(projects.length - 1);
+    return newProject;
 }
 
 // Common data for each panel, this never really changes.

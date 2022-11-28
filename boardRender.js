@@ -102,6 +102,7 @@ function renderProjectList(){
     projects.forEach(element => {
         html += '<div class="projItem" onclick="changeProjects(' + element.id + ')">' + element.name + '</div>';
     });
+    html += '<div class="projItem" onclick="createProject();">+ New Project</div>';
     document.getElementById("projList").innerHTML = html;
 }
 function tagSort(tagName){
