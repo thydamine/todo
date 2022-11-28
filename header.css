@@ -59,6 +59,18 @@
     margin-top: 5px;
     background-color: var(--selectorBackground);
 }
+.projItemText {
+    border: none;
+    background-color: var(--selectorBackground);
+    padding: 5px;
+    border-radius: 5px;
+    font-size: 14px;
+    line-height: 1em;
+    text-align: center;
+    margin-top: 5px;
+    width: 290px;
+    color: #ffffff;
+}
 .notificationCircle {
     position: relative;
     display: inline-block;

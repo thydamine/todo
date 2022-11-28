@@ -24,8 +24,11 @@ function renderBlocks(tagName = null){
 
     if (tagName != null){
         document.getElementById("tagSearchClickable").innerHTML = "Showing only <b>" + tagName + "</b>";
+        document.getElementById("tagSearchClickable").style = "background-color: var(--tagBackground);";
     } else {
         document.getElementById("tagSearchClickable").innerHTML = "Filter by Tag";
+        document.getElementById("tagSearchClickable").style = "background-color: var(--selectorBackground);";
+
     }
 
     blocks.reverse();
@@ -102,7 +105,7 @@ function renderProjectList(){
     projects.forEach(element => {
         html += '<div class="projItem" onclick="changeProjects(' + element.id + ')">' + element.name + '</div>';
     });
-    html += '<div class="projItem" onclick="createProject();">+ New Project</div>';
+    html += '<input type="text" class="projItemText" onchange="createProject();" placeholder="+ Create a New Project" id="newProjectName">';
     document.getElementById("projList").innerHTML = html;
 }
 function tagSort(tagName){

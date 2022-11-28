@@ -58,7 +58,8 @@ class Project {
 }
 
 function createProject(){
-    let newProject = new Project();
+    let name = document.getElementById("newProjectName").value;
+    let newProject = new Project(name);
     projects.push(newProject);
     changeProjects(projects.length - 1);
     return newProject;
